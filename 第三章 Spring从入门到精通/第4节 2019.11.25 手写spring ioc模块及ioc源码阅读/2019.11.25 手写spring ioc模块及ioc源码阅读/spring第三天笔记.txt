@@ -1,0 +1,42 @@
+课程主题
+	手写spring ioc模块&阅读ioc源码
+
+课程目标
+	1.重点要掌握bean的创建过程
+	2.重点理解bean的属性填充是如何完成的
+	3.开始阅读spring源码
+	
+课程回顾
+	1.BeanDefinition的注册流程的分析及实现
+		BeanDefinition	----bean标签
+			PropertyValue集合	----property标签
+				value	TypedStringValue
+				ref		RuntimeBeanReference
+				
+课程内容
+	1.如何创建对象
+		a)要的时候再创建（懒加载方式）						--BeanFactory
+		b)应用启动的时候，创建所有的懒加载方式的单例bean	--ApplicationContext
+	
+	2.阅读高级容器的源码ApplicationContext
+		主线：
+			理解IoC模块的工作流程
+	
+		入口：
+			ApplicationContext ctx  = new ClasspathXmlApplicationContext("");
+			
+			
+		阅读Spring源码注意实现：
+			a）注意try catch代码块
+			b）主要以do开头的方法，都是真正干活的方法
+		
+		ClasspathXmlApplicationContext#构造方法
+			AbstractApplicationContext#refresh方法
+				#obtainFreshBeanFactory
+					AbstractRefreshableApplicationContext#refreshBeanFactory
+						AbstractXmlApplicationContext#loadBeanDefinitions
+							
+							AbstractBeanDefinitionReader#loadBeanDefinitions
+								XmlBeanDefinitionReader#loadBeanDefinitions
+									
+							

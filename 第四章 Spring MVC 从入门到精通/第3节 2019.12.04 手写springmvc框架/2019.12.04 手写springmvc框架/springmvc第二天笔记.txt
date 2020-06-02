@@ -1,0 +1,78 @@
+课程主题
+	手写springmvc框架
+	
+课程目标
+	1.通过手写框架，我们要清楚处理器Handler的写法
+	2.通过手写框架，我们要清楚HandlerMapping的实现方式
+	3.通过手写框架，我们要清楚HandlerAdapter的实现方式
+	4.通过手写框架，我们要清楚DispatcherServlet的实现方式
+	5.掌握自定义注解的开发
+	
+课程回顾
+	1.每个同学需要画出来springmvc11个步骤访问流程图
+	2.掌握web请求流程
+	
+课程内容
+	需求：
+		http://localhost/QueryUserServlet?id=1&name=james
+		http://localhost/SaveUserServlet
+		
+		
+
+	1.分析直接使用Servlet程序去实现表现层一些弊端
+		a）每个请求都需要编写一个Servlet类，类太多，不容易维护
+		b）Servlet类的实例需要由Tomcat去产生。
+			思考：同一个Servlet类会被实例化几次？
+						Servlet类的实例是在什么时候被实例化？
+						
+		改善优化结论：不要产生太多的Servlet实例
+		
+		方式1：通过继承统一的父类（基类）
+		
+			http://localhost/userServlet?method=query
+		
+			BaseServlet{
+			
+				doget(){
+					//获取请求url中的method属性值
+					去调用对应名称的方法
+				}
+				doPost(){
+					doGet();
+				}
+			}
+		
+			UserServlet extends BaseServlet{
+			
+				query(){
+					//实现query操作
+				
+				}
+			}
+		
+		Servlet：在BS结构下，服务器端的Java实现标准（接口）
+		
+		方式2：有一个统一的Servlet程序去负责请求的接收与结果响应
+					而具体的业务处理，交给一个普通的javaBean实例（非Servlet实现类）去实现
+					
+					DispatcherServlet{
+					
+						doGet(){
+							//接收参数		HttpRequest
+							
+							//分发请求		Handler类（普通的JavaBean）
+							
+							//响应处理结果	HttpResponse
+						
+						}
+					}
+		
+					//先制定标准，再编写Handler，否则没有标准实现的话，就在DispatcherServlet类中无法统一调用
+					Handler{
+						
+					
+					}
+	
+	2.手写springmvc2.0版本（非注解方式）
+	
+	3.手写springmvc3.0版本（注解方式）

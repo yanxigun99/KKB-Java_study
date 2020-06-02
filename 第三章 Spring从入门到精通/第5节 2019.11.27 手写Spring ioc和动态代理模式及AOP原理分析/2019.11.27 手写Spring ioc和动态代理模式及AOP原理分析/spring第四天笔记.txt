@@ -1,0 +1,126 @@
+课程主题
+	spring ioc 模块源码阅读&aop原理分析&动态代理模式
+	
+课程目标
+	1.搞清楚spring ioc模块中是如何完成bean的创建的
+	2.搞清楚循环依赖
+	3.搞清楚aop核心概念
+	4.搞清楚AspectJ和Spring aop的关系
+	5.搞清楚动态代理原理（JDK、CGLib）
+	6.搞清楚AOP工作原理
+	
+课程回顾
+	1.spring ioc BeanDefinition的注册流程
+	
+课程内容
+	1.源码阅读（多读几遍）
+		主线：搞清楚bean的创建流程
+		入口：AbstractApplicationContext#finishBeanFactoryInitialization()
+			DefaultListableBeanFactory#preInstantiateSingletons
+				AbstractBeanFactory#getBean
+				
+				
+	2.循环依赖问题
+
+		构造循环依赖：死循环只能该代码，无法解决
+			对象还没new出来
+		
+		set方法循环依赖
+			对象已经new出来，只是属性填充时遇到了循环依赖
+			
+		场景模拟
+			前提	A--->B		B---->A
+			
+			1.创建A对象
+				正在创建中的对象Set集合(beanName)
+			
+				A对象实例化（new）
+					【将A对象的引用，提前暴露到三级缓存中，并且将A对象封装到一个ObjectFactory】
+						ObjectFactory不只是可以获取A对象，还有可能，
+							对A对象产生代理，也就是返回的可能是元对象，也可能是代理对象
+							
+					三级缓存产生完对象之后，就会将产生出来的A对象（不一定是原对象了）放入二级缓存
+				A对象依赖注入（set方法）
+					setB(b对象实例)----创建B对象
+						B对象实例化（new）
+						B对象依赖注入（set方法）
+							setA(a对象实例)----创建A对象(需要解决循环依赖)
+								正在创建中的对象Set集合(beanName)	？
+								【去二、三级缓存中找A对象】
+						B对象初始化
+						
+						【将B对象放入一级缓存	】		
+				A对象初始化
+				
+				【将A对象放入一级缓存】
+				------到此A对象才是完整的-----
+		
+		
+				A---->B				B----->C			C----A
+				A---->C
+				
+				C被依赖了两次，所以第一次被依赖时，由三级缓存产生C的实例，然后放入二级缓存
+								除了第一次，不会再走三级缓存，后面如果想C对象的解决循环依赖问题，都需要去二级缓存去获取
+	
+	面试问题
+		FactoryBean和BeanFactory区别
+			BeanFactory是spring顶级接口，是spring基础容器，它负责管理bean实例。
+			
+			FactoryBean只是spring容器中被管理的一个bean对象，只是说这个bean它的能力就是产生另外的对象。
+			
+			BeanFactory是一个包容万物的大工厂
+			FactoryBean是一个只能生产指定对象的小工厂，而且这个小工厂还被大工厂给管理。
+			
+			FactoryBean和普通的Bean实例，被Spring管理时，也是区别对待的。通过&前缀来区分FactoryBean和普通的Bean实例
+			
+		如果原型模式（多例）的Bean发生循环引用怎么处理
+			无法处理，抛异常，因为spring是通过缓存去解决的循环依赖，而原型bean是不存缓存的
+			
+			
+	3.aop核心概念梳理
+		aop	和oop一样都是思想
+		aop的实现主要有几种：AspectJ 、Spring AOP	、	Spring整合AspectJ
+		AOP面向切面编程，其实就是无侵入的进行功能增强，使用AOP可以实现业务代码和系统代码分离。
+			
+		AOP的核心思想，就是通过织入去增强代码，织入又分为静态织入和动态织入
+
+		静态织入，指的就是不修改源代码，只对class文件进行修改，实现功能增强。AspectJ使用的就是这种
+		动态织入，指的就是运行时，通过动态代理技术，产生代理对象，完成功能增强。Spring AOP 、Spring整合AspectJ
+		
+		AOP核心概念
+			目标对象
+			连接点
+			切入点
+			代理对象
+			织入
+			通知
+			切面
+			通知器
+			引介
+		
+		动态代理
+			其实代理技术分为静态代理和动态代理
+				静态代理其实就是在写源码的时候，为目标类去编写一个对应的代理类（java文件）
+				
+				动态代理技术其实就是在运行时，通过不同的技术实现，去创建新的对象。
+					
+			动态代理技术常用的有两种：JDK动态代理技术、CGLib动态代理技术
+				JDK动态代理技术：目标类必须有接口才能使用这种方式。
+					代理类和目标类其实都是目标类接口的一个实现类，使用的是接口实现。
+				CGLib动态代理技术：目标类只要不是final修饰的就可以，不需要有接口
+					代理类是目标类的子类，使用的是继承。
+					
+				Spring默认使用的JDK、可以人为指定使用CGLib
+				
+				其他区别如下：
+				jdk1.7之前，CGLib运行比JDK要快，之后效率差不多，但是JDK产生代理对象的效率要高
+				Cglib底层是通过ASM字节码工具包去实现的字节码重写。而JDK只是相当于帮程序员在后台写了java文件，并编译、加载
+				
+			JDK和cglib产生代理对象的方式是怎么样的？
+				怎么用
+				jdk是如何产生代理对象的原理
+
+			JDK和cglib产生的代理对象的处理步骤是什么样的
+				怎么用
+				原理：代理对象执行时，会调用InvocationHandler或者MethodInterceptor去完成增强功能
+		

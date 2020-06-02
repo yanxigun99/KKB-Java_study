@@ -1,0 +1,27 @@
+<beans>
+	<!-- Handler处理器类的配置 -->
+	<!-- 通过bean标签，建立beanname和bean的映射关系 -->
+	<bean name="/queryUser2"
+		class="com.kkb.springmvc.handler.QueryUserHandler"></bean>
+	<bean name="/addUser2"
+		class="com.kkb.springmvc.handler.AddUserHandler"></bean>
+
+	<!-- 纯注解方式下的处理器 -->
+	<bean class="com.kkb.springmvc.controller.UserController"></bean>
+	<!-- HandlerMapping配置 -->
+	<bean
+		class="com.kkb.springmvc.handlermapping.BeanNameUrlHandlerMapping"
+		init-method="init"></bean>
+	<bean
+	class="com.kkb.springmvc.handlermapping.RequestMappingHandlerMapping"
+	init-method="init"></bean>
+	<!-- <bean -->
+	<!-- class="com.kkb.springmvc.handlermapping.SimpleHandlerMapping" -->
+	<!-- init-method="init"></bean> -->
+
+	<!-- HandlerAdapter配置 -->
+	<bean
+		class="com.kkb.springmvc.handleradapter.HttpRequestHandlerAdapter"></bean>
+	<bean
+		class="com.kkb.springmvc.handleradapter.RequestMappingHandlerAdapter"></bean>
+</beans>

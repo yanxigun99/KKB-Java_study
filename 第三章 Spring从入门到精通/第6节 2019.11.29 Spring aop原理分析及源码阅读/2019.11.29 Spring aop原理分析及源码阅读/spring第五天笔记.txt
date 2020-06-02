@@ -1,0 +1,93 @@
+课程主题
+	spring aop源码阅读和原理分析
+	
+课程目标
+	1.会使用JDK/CGLib动态代理中的InvocationHandler和MethodInterceptor
+	2.搞清楚自定义标签是如何被解析为BeanDefinition的
+	3.搞清楚Spring AOP中产生代理对象的流程
+	4.搞清楚Spring AOP中代理对象执行流程
+	
+课程回顾
+	1.循环依赖
+		二级缓存和三级缓存的作用？
+		构造循环依赖和setter方法循环依赖，如何解决这些循环依赖？
+		
+	2.aop核心概念
+		切入点
+		通知（增强功能）
+		目标对象
+		代理对象
+		切面/通知器
+		
+		
+	3.动态代理
+		JDK：针对有接口的类产生动态代理对象
+		CGLib：针对可以被继承的类产生动态代理对象（ASM字节码工具）
+		
+		产生代理对象
+			JDK
+				Proxy.newProxyInstance(classloader,interfaces,【InvocationHandler实现类】)
+			
+			CGLib
+				Enhance enhance = new...
+				//设置超类
+				//设置回调----代理对象的方法被调用时
+				
+				enhancer.create
+
+课程内容				
+	1.代理对象执行
+		JDK
+			InvocationHandler{
+				target
+				invoke(proxy,method,args){
+					
+					//调用目标对象(反射的API)
+					method.invoke(target，args)
+				}
+			}
+			
+		CGLib
+			MethodInterceptor{
+			
+				intercept(proxy,method,args,proxyMethod){
+				
+					//调用目标对象（代理对象的API）
+					//代理对象又会调用目标对象
+					proxyMethod.invokeSuper(proxy,args)
+					//method.invoke(target,args)
+				}
+			}
+		
+		
+		问题：
+			什么时候会调用以上的方法？
+			
+			当代理对象被创建的时候，是不会调用以上的方法的
+			当代理对象被访问其中方法的时候，才会调用以上两种（互斥）方法
+	
+	编写AOP代码流程
+		a)编写目标业务类/接口
+		b)编写增强功能（系统功能）---不是一个类表示一个增强功能，而且一个类的方法表示一个增强功能
+			如何去调用一个类的方法？
+				对象
+				方法对象
+		
+		c)通过xml或者注解去实现AOP
+			XML
+				aop标签
+			
+	2.aop标签解析源码阅读
+		如何去查找对应的自定义标签的BeanDefinitionParser
+		
+		
+		
+		认识十个BeanDefinition所描述的类的作用
+		
+	3.spring aop原理分析
+		画图
+		
+	4.aop 代理对象产生流程源码阅读
+	
+	5.代理对象执行流程源码阅读
+	

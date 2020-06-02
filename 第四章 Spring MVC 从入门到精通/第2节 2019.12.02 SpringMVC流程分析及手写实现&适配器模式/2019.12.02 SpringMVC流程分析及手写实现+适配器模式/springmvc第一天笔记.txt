@@ -1,0 +1,24 @@
+课程主题
+	SpringMVC流程分析、适配器模式、手写SpringMVC框架
+	
+课程目标
+	1.要掌握SpringMVC中的请求处理流程的原理
+	2.要清楚SpringMVC中的六大组件的作用
+	3.重点搞清楚处理器Handler、处理器映射器HandlerMapping、处理器适配器HandlerAdapter的功能
+	4.掌握适配器模式的用法
+	5.手写SpringMVC框架思路分析
+	
+课程回顾
+	1.Spring 中AOP产生的代理对象的执行流程分析
+	
+课程内容
+	1.看一下录播课内容
+	2.分析web应用的访问全路径
+	3.分析SpringMVC的执行流程（MVC组件和六大组件）
+	4.适配器模式
+	5.手写SpringMVC框架
+		只要是使用Java来处理Web请求，底层都是使用的Servlet程序去处理的
+		需求：
+			http://localhost:8080/queryUser?id=1&name=zhangsan
+			http://localhost:8080/saveUser
+	

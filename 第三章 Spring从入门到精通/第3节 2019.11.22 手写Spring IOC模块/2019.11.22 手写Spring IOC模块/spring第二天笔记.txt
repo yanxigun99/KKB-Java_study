@@ -1,0 +1,103 @@
+课程主题
+	手写spring ioc模块
+	
+课程目标
+	1.搞清楚BeanDefinition、PropertyValue、TypedStringValue、RuntimeBeanReference类的作用
+	2.搞清楚BeanFactory继承体系中各个接口和类的作用？
+	3.搞清楚IOC模块中BeanDefinition注册流程和Bean实例的创建流程
+	
+课程回顾
+	1.单例模式-双重检查锁
+		初始JVM的并发编程
+			JMM：Java内存模型
+			原子性、有序性、可见性
+			volatile关键字
+			内存屏障
+			六大先行发生原则（happend before）
+			锁
+	2.spring ioc流程
+		BeanDefinition的注册流程（XML、注解）
+		Bean的创建流程
+		BeanFactoryPostProcessor：<context:property-placeholder location=""/>
+		BeanPostProcessor：aop产生代理对象（和原对象已经不是一个对象）
+		
+课程内容
+	1.BeanFactory的继承体系
+		 spring容器，也叫ioc容器，这个容器分为基础容器和高级容器。
+		 基础容器就是BeanFactory
+		 高级容器就是ApplicationContext，底层其实也是通过BeanFactory实现的Bean的管理。
+		 
+		BeanFactory和ApplicationContext区别是什么？
+		a)BeanFactory和ApplicationContext都是Spring的顶级接口
+		b)ApplicationContext是继承了BeanFactory接口的
+		c)BeanFactory它产生对象是通过懒汉式产生的，
+		  但是ApplicationContext产生对象是在应用启动的时候，一次性将【懒加载的单例bean】创建出来。
+		
+		 
+		 
+		
+		
+	2.手写spring ioc模块思想分析
+		UserService{
+			UserDao dao ;
+			
+			save(){
+				dao.save();
+			}
+		}
+		
+		UserDao{
+			
+			save(){
+				sqlSession.insert...
+			}
+		
+		}
+		
+		
+		Test{
+		
+			main(){
+			
+				UserService service = new UserServiceImpl();
+				UserDao dao = new UserDaoImpl();
+				service.setDao(dao); //使用简单工厂模式和DI去实现Bean的创建与代码的解耦
+			
+				BeanFactory bf = new BeanFactory();
+				bf.getBean("userService");
+			
+			}
+		}
+		
+		BeanFactory{
+			//完成BeanDefinition的注册
+			BeanFactory(){
+				//完成资源的定位（XML）
+				//加载资源
+				//解析并完成BeanDefinition的注册（BeanDefinitionRegistry）
+			}
+			Object getBean(String beanName){
+				//先读Bean的缓存（Map）(SingletonBeanRegistry)
+				//如果找到，则返回
+				//如果没有，先去根据beanName获取BeanDefinition
+				//根据BeanDefinition完成Bean创建的三部曲（实例化、属性填充、初始化）
+				//将创建好的Bean放入缓存
+			}
+		}
+	
+		<beans>
+			<bean id="" class="" scope="" init-method="">
+				<property value>
+				<property ref>
+			</bean>
+		</beans>
+		
+		BeanDefinition
+			List<PropertyValue>
+				String name
+				Object value
+					TypedStringValue
+						value值
+						type类型
+					RuntimeBeanReference
+						beanName
