@@ -1,0 +1,2 @@
+alipay=com.abc.spi.extension.AlipayOrder
+wechat=com.abc.spi.extension.WeChatOrder

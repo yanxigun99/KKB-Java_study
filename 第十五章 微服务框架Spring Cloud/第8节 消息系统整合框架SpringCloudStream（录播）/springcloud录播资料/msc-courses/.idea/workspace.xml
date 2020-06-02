@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d8c8f14-631f-4cae-abed-81e964041eeb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>execution.tim</find>
+    </findStrings>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
+  <component name="ProjectId" id="1a4oNBwfnuHuH4nooI4p2licQB7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="ExpandSpringBootSpringBootSettingsPanel" value="false" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="FilterCons&#9;FILE&#9;jar://D:/maven/repository/org/springframework/cloud/spring-cloud-netflix-zuul/2.2.1.RELEASE/spring-cloud-netflix-zuul-2.2.1.RELEASE-sources.jar!/org/springframework/cloud/netflix/zuul/filters/support/FilterConstants.java&#10;ZuulFilt&#9;PSI&#9;JAVA://com.netflix.zuul.ZuulFilter&#10;ZuulPro&#9;FILE&#9;jar://D:/maven/repository/org/springframework/cloud/spring-cloud-netflix-zuul/2.2.1.RELEASE/spring-cloud-netflix-zuul-2.2.1.RELEASE.jar!/org/springframework/cloud/netflix/zuul/filters/ZuulProperties.class&#10;Hystr&#9;FILE&#9;jar://D:/maven/repository/com/netflix/hystrix/hystrix-core/1.5.18/hystrix-core-1.5.18-sources.jar!/com/netflix/hystrix/HystrixCommandProperties.java&#10;Hystrix&#9;FILE&#9;jar://D:/maven/repository/com/netflix/hystrix/hystrix-core/1.5.18/hystrix-core-1.5.18-sources.jar!/com/netflix/hystrix/HystrixCommandProperties.java&#10;HystrixCommandPro&#9;PSI&#9;JAVA://com.netflix.hystrix.HystrixCommandProperties&#10;RandomRu&#9;PSI&#9;JAVA://com.netflix.loadbalancer.RandomRule&#10;EurekaInstanceConfig&#9;PSI&#9;JAVA://com.netflix.appinfo.EurekaInstanceConfig&#10;EurekaServerConfig &#9;PSI&#9;JAVA://com.netflix.eureka.EurekaServerConfig&#10;EurekaClientConfig&#9;PSI&#9;JAVA://com.netflix.discovery.EurekaClientConfig&#10;BasicEx&#9;PSI&#9;JAVA://org.hibernate.hql.internal.ast.exec.BasicExecutor&#10;BasicBinder&#9;PSI&#9;JAVA://org.hibernate.type.descriptor.sql.BasicBinder" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.ide.apk.debugging" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579658757681" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/08-stream-kafka2-8080" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2363847" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\java\开课吧课程学习\第十五章 微服务框架Spring Cloud\第8节 消息系统整合框架SpringCloudStream（录播）\springcloud录播资料\msc-courses\02-consumer-8080\src\main\java" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\msc-courses" />
+      <recent name="D:\workspace\msc-courses\06-config-consumer\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.abc.consumer" />
+      <recent name="com.abc.filter" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.abc.bean" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ApplicationEuerkaServer8000">
+    <configuration name="ApplicationProvider8081" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.abc.ApplicationProvider8081" />
+      <module name="02-provider-8081" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationBusConfigConsumer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="06-bus-config-consumer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationBusConfigConsumer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationBusConfigProvider" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="06-bus-config-provider" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationBusConfigProvider" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConfigEuerkaServer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="06-config-eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConfigEuerkaServer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8080 (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="07-sleuth-consumer-8080" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationSleuthConsumer8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8080 (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="04-consumer-fallbackfactory-8080" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8080" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="06-config-consumer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConfigConsumer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8090" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="05-zuul-consumer-8090" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8090" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8180" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="05-zuul-consumer-8180" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8180" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8280" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="05-zuul-consumer-8280" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8280" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8380" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="05-zuul-consumer-8380" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8380" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8480" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="04-consumer-turbine-client-8480" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8480" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8580" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="04-consumer-turbine-client-8580" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8580" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationConsumer8680" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="04-consumer-turbine-client-8680" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConsumer8680" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationEuerkaServer8000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-eurekaserver-8000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationEuerkaServer8000" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationEuerkaServer8100" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-eurekaserver-8100" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationEuerkaServer8100" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationEuerkaServer8200" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-eurekaserver-8200" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationEuerkaServer8200" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationEuerkaServer8300" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-eurekaserver-8300" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationEuerkaServer8300" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationKafkaConsumer8080" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="07-kafka-consumer-8080" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationKafkaConsumer8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationKafkaProvider8081" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="07-kafka-provider-8081" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationKafkaProvider8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationProvider8081 (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="07-sleuth-provider-8081" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationSleuthProvider8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationProvider8081 (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="01-provider-8081" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationProvider8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationProvider8081" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="06-config-provider" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConfigProvider" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationProvider8082" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="03-provider-8082" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationProvider8082" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationProvider8083" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="03-provider-8083" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationProvider8083" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationProvider8084" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="03-provider-8084" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationProvider8084" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationStreamKafka28080" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="08-stream-kafka2-8080" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationStreamKafka28080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationStreamKafka8080" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="08-stream-kafka-8080" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.abc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationStreamKafka8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTurbine7777" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-hystrix-turbine-7777" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationTurbine7777" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTurbine8888" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-hystrix-turbine-8888" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationTurbine8888" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationViaConsumer8080" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="07-via-consumer-8080" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationViaConsumer8080" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationViaProvider8081" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="07-via-provider-8081" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationViaProvider8081" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationZuuFallbackl9000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-zuul-fallback-9000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationZuuFallbackl9000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationZuuFilter9000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-zuul-filter-9000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationZuuFilter9000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationZuul9000 (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-zuul-9000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationZuul9000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationZuul9000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-config-server-9999" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationConfigServer9999" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationZuulGray9000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-zuul-gray-9000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationZuulGray9000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationZuulRateLimit9000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-zuul-ratelimit-9000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationZuulRateLimit9000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationZuulTockenBucket9000" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="00-zuul-tockenbucket-9000" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.abc.ApplicationZuulTockenBucket9000" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ApplicationProvider8081" />
+      <item itemvalue="Spring Boot.ApplicationEuerkaServer8000" />
+      <item itemvalue="Spring Boot.ApplicationTurbine8888" />
+      <item itemvalue="Spring Boot.ApplicationZuulRateLimit9000" />
+      <item itemvalue="Spring Boot.ApplicationZuulGray9000" />
+      <item itemvalue="Spring Boot.ApplicationZuul9000" />
+      <item itemvalue="Spring Boot.ApplicationProvider8081" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8080" />
+      <item itemvalue="Spring Boot.ApplicationBusConfigProvider" />
+      <item itemvalue="Spring Boot.ApplicationProvider8081 (1)" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8080 (1)" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8580" />
+      <item itemvalue="Spring Boot.ApplicationProvider8083" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8080 (2)" />
+      <item itemvalue="Spring Boot.ApplicationTurbine7777" />
+      <item itemvalue="Spring Boot.ApplicationEuerkaServer8200" />
+      <item itemvalue="Spring Boot.ApplicationEuerkaServer8100" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8180" />
+      <item itemvalue="Spring Boot.ApplicationZuul9000 (1)" />
+      <item itemvalue="Spring Boot.ApplicationProvider8081 (2)" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8090" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8680" />
+      <item itemvalue="Spring Boot.ApplicationProvider8082" />
+      <item itemvalue="Spring Boot.ApplicationEuerkaServer8300" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8480" />
+      <item itemvalue="Spring Boot.ApplicationZuulTockenBucket9000" />
+      <item itemvalue="Spring Boot.ApplicationZuuFilter9000" />
+      <item itemvalue="Spring Boot.ApplicationViaProvider8081" />
+      <item itemvalue="Spring Boot.ApplicationProvider8084" />
+      <item itemvalue="Spring Boot.ApplicationZuuFallbackl9000" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8380" />
+      <item itemvalue="Spring Boot.ApplicationBusConfigConsumer" />
+      <item itemvalue="Spring Boot.ApplicationConsumer8280" />
+      <item itemvalue="Spring Boot.ApplicationViaConsumer8080" />
+      <item itemvalue="Spring Boot.ApplicationConfigEuerkaServer" />
+      <item itemvalue="Spring Boot.ApplicationKafkaProvider8081" />
+      <item itemvalue="Spring Boot.ApplicationKafkaConsumer8080" />
+      <item itemvalue="Spring Boot.ApplicationStreamKafka8080" />
+      <item itemvalue="Spring Boot.ApplicationStreamKafka28080" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ApplicationProvider8081" />
+        <item itemvalue="Spring Boot.ApplicationStreamKafka28080" />
+        <item itemvalue="Spring Boot.ApplicationStreamKafka8080" />
+        <item itemvalue="Spring Boot.ApplicationKafkaConsumer8080" />
+        <item itemvalue="Spring Boot.ApplicationKafkaProvider8081" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d8c8f14-631f-4cae-abed-81e964041eeb" name="Default Changelist" comment="" />
+      <created>1571048729416</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571048729416</updated>
+      <workItem from="1571048732690" duration="3879000" />
+      <workItem from="1571964311231" duration="45000" />
+      <workItem from="1576715759133" duration="653000" />
+      <workItem from="1577239540137" duration="996000" />
+      <workItem from="1577324573174" duration="4051000" />
+      <workItem from="1577357463026" duration="488000" />
+      <workItem from="1577492867600" duration="5204000" />
+      <workItem from="1577519635407" duration="6302000" />
+      <workItem from="1577580886719" duration="12729000" />
+      <workItem from="1577672082606" duration="2982000" />
+      <workItem from="1577758483121" duration="2922000" />
+      <workItem from="1577844392257" duration="597000" />
+      <workItem from="1578876443388" duration="5132000" />
+      <workItem from="1579046435282" duration="7642000" />
+      <workItem from="1579221958637" duration="640000" />
+      <workItem from="1579312187420" duration="13425000" />
+      <workItem from="1579394274388" duration="17330000" />
+      <workItem from="1579482158106" duration="957000" />
+      <workItem from="1579570533695" duration="17152000" />
+      <workItem from="1579652660621" duration="5676000" />
+      <workItem from="1586004187293" duration="15421000" />
+      <workItem from="1586178812132" duration="2406000" />
+      <workItem from="1586244187485" duration="2350000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="614" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586005781177">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="614" y="301" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586005781177" />
+    <state x="543" y="153" key="FileChooserDialogImpl" timestamp="1586179179118">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="543" y="153" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586179179118" />
+    <state width="1024" height="210" key="GridCell.Tab.0.bottom" timestamp="1586097395757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395757" />
+    <state width="1024" height="210" key="GridCell.Tab.0.center" timestamp="1586097395757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395757" />
+    <state width="1024" height="210" key="GridCell.Tab.0.left" timestamp="1586097395756">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395756" />
+    <state width="1024" height="210" key="GridCell.Tab.0.right" timestamp="1586097395757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395757" />
+    <state width="1024" height="210" key="GridCell.Tab.1.bottom" timestamp="1586097395757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395757" />
+    <state width="1024" height="210" key="GridCell.Tab.1.center" timestamp="1586097395757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395757" />
+    <state width="1024" height="210" key="GridCell.Tab.1.left" timestamp="1586097395757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395757" />
+    <state width="1024" height="210" key="GridCell.Tab.1.right" timestamp="1586097395757">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586097395757" />
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1586046603892">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586046603892" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1586004814299">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586004814299" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1586180042559">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1586180042559" />
+  </component>
+</project>

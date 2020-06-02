@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/00-config-server-9999/00-config-server-9999.iml" filepath="$PROJECT_DIR$/00-config-server-9999/00-config-server-9999.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-eurekaserver-8000/00-eurekaserver-8000.iml" filepath="$PROJECT_DIR$/00-eurekaserver-8000/00-eurekaserver-8000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-provider-8081/00-eurekaserver-8000 (1).iml" filepath="$PROJECT_DIR$/01-provider-8081/00-eurekaserver-8000 (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-eurekaserver-8100/00-eurekaserver-8100.iml" filepath="$PROJECT_DIR$/00-eurekaserver-8100/00-eurekaserver-8100.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-eurekaserver-8200/00-eurekaserver-8200.iml" filepath="$PROJECT_DIR$/00-eurekaserver-8200/00-eurekaserver-8200.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-eurekaserver-8300/00-eurekaserver-8300.iml" filepath="$PROJECT_DIR$/00-eurekaserver-8300/00-eurekaserver-8300.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-hystrix-turbine-7777/00-hystrix-turbine-7777.iml" filepath="$PROJECT_DIR$/00-hystrix-turbine-7777/00-hystrix-turbine-7777.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-hystrix-turbine-8888/00-hystrix-turbine-8888.iml" filepath="$PROJECT_DIR$/00-hystrix-turbine-8888/00-hystrix-turbine-8888.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-zuul-9000/00-zuul-9000.iml" filepath="$PROJECT_DIR$/00-zuul-9000/00-zuul-9000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-zuul-fallback-9000/00-zuul-fallback-9000.iml" filepath="$PROJECT_DIR$/00-zuul-fallback-9000/00-zuul-fallback-9000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-zuul-filter-9000/00-zuul-filter-9000.iml" filepath="$PROJECT_DIR$/00-zuul-filter-9000/00-zuul-filter-9000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-zuul-gray-9000/00-zuul-gray-9000.iml" filepath="$PROJECT_DIR$/00-zuul-gray-9000/00-zuul-gray-9000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-zuul-ratelimit-9000/00-zuul-ratelimit-9000.iml" filepath="$PROJECT_DIR$/00-zuul-ratelimit-9000/00-zuul-ratelimit-9000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/00-zuul-tockenbucket-9000/00-zuul-tockenbucket-9000.iml" filepath="$PROJECT_DIR$/00-zuul-tockenbucket-9000/00-zuul-tockenbucket-9000.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-consumer-8080/01-consumer-8080.iml" filepath="$PROJECT_DIR$/01-consumer-8080/01-consumer-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-provider-8081/01-provider-8081.iml" filepath="$PROJECT_DIR$/01-provider-8081/01-provider-8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-consumer-8080/02-consumer-8080.iml" filepath="$PROJECT_DIR$/02-consumer-8080/02-consumer-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-provider-8081/02-provider-8081.iml" filepath="$PROJECT_DIR$/02-provider-8081/02-provider-8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-consumer-feign-8080/03-consumer-feign-8080.iml" filepath="$PROJECT_DIR$/03-consumer-feign-8080/03-consumer-feign-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-provider-8081/03-provider-8081.iml" filepath="$PROJECT_DIR$/03-provider-8081/03-provider-8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-provider-8082/03-provider-8082.iml" filepath="$PROJECT_DIR$/03-provider-8082/03-provider-8082.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-provider-8083/03-provider-8083.iml" filepath="$PROJECT_DIR$/03-provider-8083/03-provider-8083.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-provider-8084/03-provider-8084.iml" filepath="$PROJECT_DIR$/03-provider-8084/03-provider-8084.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-alarm-8080/04-consumer-alarm-8080.iml" filepath="$PROJECT_DIR$/04-consumer-alarm-8080/04-consumer-alarm-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-dashboard-8080/04-consumer-dashboard-8080.iml" filepath="$PROJECT_DIR$/04-consumer-dashboard-8080/04-consumer-dashboard-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-fallbackfactory-8080/04-consumer-fallbackfactory-8080.iml" filepath="$PROJECT_DIR$/04-consumer-fallbackfactory-8080/04-consumer-fallbackfactory-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-fallbackfeign-8080/04-consumer-fallbackfeign-8080.iml" filepath="$PROJECT_DIR$/04-consumer-fallbackfeign-8080/04-consumer-fallbackfeign-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-fallbackmethod-8080/04-consumer-fallbackmethod-8080.iml" filepath="$PROJECT_DIR$/04-consumer-fallbackmethod-8080/04-consumer-fallbackmethod-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-feign-fallbackmethod-8080/04-consumer-feign-fallbackmethod-8080.iml" filepath="$PROJECT_DIR$/04-consumer-feign-fallbackmethod-8080/04-consumer-feign-fallbackmethod-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-turbine-client-8180/04-consumer-turbine-client-8180.iml" filepath="$PROJECT_DIR$/04-consumer-turbine-client-8180/04-consumer-turbine-client-8180.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-turbine-client-8280/04-consumer-turbine-client-8280.iml" filepath="$PROJECT_DIR$/04-consumer-turbine-client-8280/04-consumer-turbine-client-8280.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-turbine-client-8380/04-consumer-turbine-client-8380.iml" filepath="$PROJECT_DIR$/04-consumer-turbine-client-8380/04-consumer-turbine-client-8380.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-turbine-client-8480/04-consumer-turbine-client-8480.iml" filepath="$PROJECT_DIR$/04-consumer-turbine-client-8480/04-consumer-turbine-client-8480.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-turbine-client-8580/04-consumer-turbine-client-8580.iml" filepath="$PROJECT_DIR$/04-consumer-turbine-client-8580/04-consumer-turbine-client-8580.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-consumer-turbine-client-8680/04-consumer-turbine-client-8680.iml" filepath="$PROJECT_DIR$/04-consumer-turbine-client-8680/04-consumer-turbine-client-8680.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-provider-8081/04-provider-8081.iml" filepath="$PROJECT_DIR$/04-provider-8081/04-provider-8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-zuul-consumer-8080/05-zuul-consumer-8080.iml" filepath="$PROJECT_DIR$/05-zuul-consumer-8080/05-zuul-consumer-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-zuul-consumer-8090/05-zuul-consumer-8090.iml" filepath="$PROJECT_DIR$/05-zuul-consumer-8090/05-zuul-consumer-8090.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-zuul-consumer-8180/05-zuul-consumer-8180.iml" filepath="$PROJECT_DIR$/05-zuul-consumer-8180/05-zuul-consumer-8180.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-zuul-consumer-8280/05-zuul-consumer-8280.iml" filepath="$PROJECT_DIR$/05-zuul-consumer-8280/05-zuul-consumer-8280.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-zuul-consumer-8380/05-zuul-consumer-8380.iml" filepath="$PROJECT_DIR$/05-zuul-consumer-8380/05-zuul-consumer-8380.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-bus-config-consumer/06-bus-config-consumer.iml" filepath="$PROJECT_DIR$/06-bus-config-consumer/06-bus-config-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-bus-config-provider/06-bus-config-provider.iml" filepath="$PROJECT_DIR$/06-bus-config-provider/06-bus-config-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-config-consumer/06-config-consumer.iml" filepath="$PROJECT_DIR$/06-config-consumer/06-config-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-config-eureka-server/06-config-eureka-server.iml" filepath="$PROJECT_DIR$/06-config-eureka-server/06-config-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-config-provider/06-config-provider.iml" filepath="$PROJECT_DIR$/06-config-provider/06-config-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-kafka-consumer-8080/07-kafka-consumer-8080.iml" filepath="$PROJECT_DIR$/07-kafka-consumer-8080/07-kafka-consumer-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-kafka-provider-8081/07-kafka-provider-8081.iml" filepath="$PROJECT_DIR$/07-kafka-provider-8081/07-kafka-provider-8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-sleuth-consumer-8080/07-sleuth-consumer-8080.iml" filepath="$PROJECT_DIR$/07-sleuth-consumer-8080/07-sleuth-consumer-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-sleuth-provider-8081/07-sleuth-provider-8081.iml" filepath="$PROJECT_DIR$/07-sleuth-provider-8081/07-sleuth-provider-8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-via-consumer-8080/07-via-consumer-8080.iml" filepath="$PROJECT_DIR$/07-via-consumer-8080/07-via-consumer-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-via-provider-8081/07-via-provider-8081.iml" filepath="$PROJECT_DIR$/07-via-provider-8081/07-via-provider-8081.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08-stream-kafka-8080/08-stream-kafka-8080.iml" filepath="$PROJECT_DIR$/08-stream-kafka-8080/08-stream-kafka-8080.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08-stream-kafka2-8080/08-stream-kafka2-8080.iml" filepath="$PROJECT_DIR$/08-stream-kafka2-8080/08-stream-kafka2-8080.iml" />
+    </modules>
+  </component>
+</project>

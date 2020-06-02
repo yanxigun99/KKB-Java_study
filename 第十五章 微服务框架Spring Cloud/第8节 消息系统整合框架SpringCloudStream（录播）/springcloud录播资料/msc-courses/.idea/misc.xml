@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/01-provider-8081/pom.xml" />
+        <option value="$PROJECT_DIR$/01-consumer-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/00-eurekaserver-8000/pom.xml" />
+        <option value="$PROJECT_DIR$/02-provider-8081/pom.xml" />
+        <option value="$PROJECT_DIR$/02-consumer-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/00-eurekaserver-8100/pom.xml" />
+        <option value="$PROJECT_DIR$/00-eurekaserver-8200/pom.xml" />
+        <option value="$PROJECT_DIR$/00-eurekaserver-8300/pom.xml" />
+        <option value="$PROJECT_DIR$/03-provider-8081/pom.xml" />
+        <option value="$PROJECT_DIR$/03-consumer-feign-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/03-provider-8082/pom.xml" />
+        <option value="$PROJECT_DIR$/03-provider-8083/pom.xml" />
+        <option value="$PROJECT_DIR$/03-provider-8084/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-feign-fallbackmethod-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-fallbackmethod-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-fallbackfactory-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-fallbackfeign-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-dashboard-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/04-provider-8081/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-turbine-client-8180/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-turbine-client-8280/pom.xml" />
+        <option value="$PROJECT_DIR$/00-hystrix-turbine-8888/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-turbine-client-8380/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-turbine-client-8480/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-turbine-client-8580/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-turbine-client-8680/pom.xml" />
+        <option value="$PROJECT_DIR$/00-hystrix-turbine-7777/pom.xml" />
+        <option value="$PROJECT_DIR$/04-consumer-alarm-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/05-zuul-consumer-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/05-zuul-consumer-8090/pom.xml" />
+        <option value="$PROJECT_DIR$/00-zuul-9000/pom.xml" />
+        <option value="$PROJECT_DIR$/05-zuul-consumer-8180/pom.xml" />
+        <option value="$PROJECT_DIR$/05-zuul-consumer-8280/pom.xml" />
+        <option value="$PROJECT_DIR$/05-zuul-consumer-8380/pom.xml" />
+        <option value="$PROJECT_DIR$/00-zuul-fallback-9000/pom.xml" />
+        <option value="$PROJECT_DIR$/00-zuul-filter-9000/pom.xml" />
+        <option value="$PROJECT_DIR$/00-zuul-tockenbucket-9000/pom.xml" />
+        <option value="$PROJECT_DIR$/00-zuul-ratelimit-9000/pom.xml" />
+        <option value="$PROJECT_DIR$/00-zuul-gray-9000/pom.xml" />
+        <option value="$PROJECT_DIR$/00-config-server-9999/pom.xml" />
+        <option value="$PROJECT_DIR$/06-config-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/06-config-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/06-config-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/06-bus-config-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/06-bus-config-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/07-sleuth-provider-8081/pom.xml" />
+        <option value="$PROJECT_DIR$/07-sleuth-consumer-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/07-via-provider-8081/pom.xml" />
+        <option value="$PROJECT_DIR$/07-via-consumer-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/07-kafka-provider-8081/pom.xml" />
+        <option value="$PROJECT_DIR$/07-kafka-consumer-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/08-stream-kafka-8080/pom.xml" />
+        <option value="$PROJECT_DIR$/08-stream-kafka2-8080/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

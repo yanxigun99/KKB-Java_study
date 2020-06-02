@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="04-provider-version"/>
+
+    <dubbo:registry address="zookeeper://zkOS:2181"/>
+
+    <!--注册Service实现类-->
+    <bean id="oldService" class="com.abc.provider.OldServiceImpl"/>
+    <bean id="newService" class="com.abc.provider.NewServiceImpl"/>
+
+    <!--暴露服务-->
+    <dubbo:service interface="com.abc.service.SomeService"
+                   ref="oldService" version="0.0.1"/>
+    <dubbo:service interface="com.abc.service.SomeService"
+                   ref="newService" version="0.0.2"/>
+
+
+</beans>

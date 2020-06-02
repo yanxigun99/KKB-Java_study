@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="03-provider-8082" />
+        <module name="03-provider-8081" />
+        <module name="05-zuul-consumer-8280" />
+        <module name="04-provider-8081" />
+        <module name="00-zuul-fallback-9000" />
+        <module name="04-consumer-turbine-client-8180" />
+        <module name="07-kafka-consumer-8080" />
+        <module name="00-zuul-filter-9000" />
+        <module name="00-hystrix-turbine-7777" />
+        <module name="06-config-provider" />
+        <module name="05-zuul-consumer-8380" />
+        <module name="02-consumer-8080" />
+        <module name="00-eurekaserver-8000 (1)" />
+        <module name="00-eurekaserver-8100" />
+        <module name="00-zuul-tockenbucket-9000" />
+        <module name="04-consumer-turbine-client-8680" />
+        <module name="01-provider-8081" />
+        <module name="05-zuul-consumer-8090" />
+        <module name="02-provider-8081" />
+        <module name="08-stream-kafka-8080" />
+        <module name="04-consumer-fallbackmethod-8080" />
+        <module name="04-consumer-fallbackfeign-8080" />
+        <module name="07-sleuth-consumer-8080" />
+        <module name="04-consumer-turbine-client-8580" />
+        <module name="00-eurekaserver-8300" />
+        <module name="00-hystrix-turbine-8888" />
+        <module name="01-consumer-8080" />
+        <module name="00-zuul-gray-9000" />
+        <module name="05-zuul-consumer-8180" />
+        <module name="04-consumer-feign-fallbackmethod-8080" />
+        <module name="07-via-consumer-8080" />
+        <module name="04-consumer-turbine-client-8480" />
+        <module name="00-zuul-ratelimit-9000" />
+        <module name="06-config-eureka-server" />
+        <module name="04-consumer-alarm-8080" />
+        <module name="00-eurekaserver-8200" />
+        <module name="05-zuul-consumer-8080" />
+        <module name="07-sleuth-provider-8081" />
+        <module name="06-config-consumer" />
+        <module name="04-consumer-turbine-client-8380" />
+        <module name="00-config-server-9999" />
+        <module name="07-via-provider-8081" />
+        <module name="00-zuul-9000" />
+        <module name="08-stream-kafka2-8080" />
+        <module name="04-consumer-fallbackfactory-8080" />
+        <module name="06-bus-config-consumer" />
+        <module name="06-bus-config-provider" />
+        <module name="04-consumer-dashboard-8080" />
+        <module name="07-kafka-provider-8081" />
+        <module name="04-consumer-turbine-client-8280" />
+        <module name="03-consumer-feign-8080" />
+        <module name="00-eurekaserver-8000" />
+        <module name="03-provider-8084" />
+        <module name="03-provider-8083" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="00-config-server-9999" target="1.8" />
+      <module name="00-eurekaserver-8000" target="1.8" />
+      <module name="00-eurekaserver-8000 (1)" target="11" />
+      <module name="00-eurekaserver-8100" target="1.8" />
+      <module name="00-eurekaserver-8200" target="1.8" />
+      <module name="00-eurekaserver-8300" target="1.8" />
+      <module name="00-hystrix-turbine-7777" target="1.8" />
+      <module name="00-hystrix-turbine-8888" target="1.8" />
+      <module name="00-zuul-9000" target="1.8" />
+      <module name="00-zuul-9001" target="1.8" />
+      <module name="00-zuul-fallback-9000" target="1.8" />
+      <module name="00-zuul-filter-9000" target="1.8" />
+      <module name="00-zuul-gray-9000" target="1.8" />
+      <module name="00-zuul-ratelimit-9000" target="1.8" />
+      <module name="00-zuul-tockbucket-9000" target="1.8" />
+      <module name="00-zuul-tockenbucket-9000" target="1.8" />
+      <module name="01-consumer-8080" target="1.8" />
+      <module name="01-provider-8081" target="1.8" />
+      <module name="02-consumer-8080" target="1.8" />
+      <module name="02-provider-8081" target="1.8" />
+      <module name="03-consumer-8080" target="1.8" />
+      <module name="03-consumer-feign-8080" target="1.8" />
+      <module name="03-provider-8081" target="1.8" />
+      <module name="03-provider-8082" target="1.8" />
+      <module name="03-provider-8083" target="1.8" />
+      <module name="03-provider-8084" target="1.8" />
+      <module name="04-consumer-alarm-8080" target="1.8" />
+      <module name="04-consumer-dashboard-8080" target="1.8" />
+      <module name="04-consumer-fallbackfactory-8080" target="1.8" />
+      <module name="04-consumer-fallbackfeign-8080" target="1.8" />
+      <module name="04-consumer-fallbackmethod-8080" target="1.8" />
+      <module name="04-consumer-feign-fallbackmethod-8080" target="1.8" />
+      <module name="04-consumer-turbine-client-8180" target="1.8" />
+      <module name="04-consumer-turbine-client-8280" target="1.8" />
+      <module name="04-consumer-turbine-client-8380" target="1.8" />
+      <module name="04-consumer-turbine-client-8480" target="1.8" />
+      <module name="04-consumer-turbine-client-8580" target="1.8" />
+      <module name="04-consumer-turbine-client-8680" target="1.8" />
+      <module name="04-provider-8081" target="1.8" />
+      <module name="05-zuul-consumer-8080" target="1.8" />
+      <module name="05-zuul-consumer-8090" target="1.8" />
+      <module name="05-zuul-consumer-8180" target="1.8" />
+      <module name="05-zuul-consumer-8280" target="1.8" />
+      <module name="05-zuul-consumer-8380" target="1.8" />
+      <module name="06-bus-config-consumer" target="1.8" />
+      <module name="06-bus-config-provider" target="1.8" />
+      <module name="06-config-consumer" target="1.8" />
+      <module name="06-config-eureka-server" target="1.8" />
+      <module name="06-config-provider" target="1.8" />
+      <module name="07-kafka-consumer-8080" target="1.8" />
+      <module name="07-kafka-provider-8081" target="1.8" />
+      <module name="07-sleuth-consumer-8080" target="1.8" />
+      <module name="07-sleuth-provider-8081" target="1.8" />
+      <module name="07-via-consumer-8080" target="1.8" />
+      <module name="07-via-provider-8081" target="1.8" />
+      <module name="08-spring-cloud-stream-kafka" target="1.8" />
+      <module name="08-stream-kafka-8080" target="1.8" />
+      <module name="08-stream-kafka2-8080" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="00-config-server-9999" options="-parameters" />
+      <module name="00-eurekaserver-8000" options="-parameters" />
+      <module name="00-eurekaserver-8000 (1)" options="-parameters" />
+      <module name="00-eurekaserver-8100" options="-parameters" />
+      <module name="00-eurekaserver-8200" options="-parameters" />
+      <module name="00-eurekaserver-8300" options="-parameters" />
+      <module name="00-hystrix-turbine-7777" options="-parameters" />
+      <module name="00-hystrix-turbine-8888" options="-parameters" />
+      <module name="00-zuul-9000" options="-parameters" />
+      <module name="00-zuul-fallback-9000" options="-parameters" />
+      <module name="00-zuul-filter-9000" options="-parameters" />
+      <module name="00-zuul-gray-9000" options="-parameters" />
+      <module name="00-zuul-ratelimit-9000" options="-parameters" />
+      <module name="00-zuul-tockenbucket-9000" options="-parameters" />
+      <module name="01-consumer-8080" options="-parameters" />
+      <module name="02-consumer-8080" options="-parameters" />
+      <module name="02-provider-8081" options="-parameters" />
+      <module name="03-consumer-feign-8080" options="-parameters" />
+      <module name="03-provider-8081" options="-parameters" />
+      <module name="03-provider-8082" options="-parameters" />
+      <module name="03-provider-8083" options="-parameters" />
+      <module name="03-provider-8084" options="-parameters" />
+      <module name="04-consumer-alarm-8080" options="-parameters" />
+      <module name="04-consumer-dashboard-8080" options="-parameters" />
+      <module name="04-consumer-fallbackfactory-8080" options="-parameters" />
+      <module name="04-consumer-fallbackfeign-8080" options="-parameters" />
+      <module name="04-consumer-fallbackmethod-8080" options="-parameters" />
+      <module name="04-consumer-feign-fallbackmethod-8080" options="-parameters" />
+      <module name="04-consumer-turbine-client-8180" options="-parameters" />
+      <module name="04-consumer-turbine-client-8280" options="-parameters" />
+      <module name="04-consumer-turbine-client-8380" options="-parameters" />
+      <module name="04-consumer-turbine-client-8480" options="-parameters" />
+      <module name="04-consumer-turbine-client-8580" options="-parameters" />
+      <module name="04-consumer-turbine-client-8680" options="-parameters" />
+      <module name="04-provider-8081" options="-parameters" />
+      <module name="05-zuul-consumer-8080" options="-parameters" />
+      <module name="05-zuul-consumer-8090" options="-parameters" />
+      <module name="05-zuul-consumer-8180" options="-parameters" />
+      <module name="05-zuul-consumer-8280" options="-parameters" />
+      <module name="05-zuul-consumer-8380" options="-parameters" />
+      <module name="06-bus-config-consumer" options="-parameters" />
+      <module name="06-bus-config-provider" options="-parameters" />
+      <module name="06-config-consumer" options="-parameters" />
+      <module name="06-config-eureka-server" options="-parameters" />
+      <module name="06-config-provider" options="-parameters" />
+      <module name="07-kafka-consumer-8080" options="-parameters" />
+      <module name="07-kafka-provider-8081" options="-parameters" />
+      <module name="07-sleuth-consumer-8080" options="-parameters" />
+      <module name="07-sleuth-provider-8081" options="-parameters" />
+      <module name="07-via-consumer-8080" options="-parameters" />
+      <module name="07-via-provider-8081" options="-parameters" />
+      <module name="08-stream-kafka-8080" options="-parameters" />
+      <module name="08-stream-kafka2-8080" options="-parameters" />
+    </option>
+  </component>
+</project>
