@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    # active: dev   # 默认选举dev环境
+    active: pro   # 默认选举pro环境

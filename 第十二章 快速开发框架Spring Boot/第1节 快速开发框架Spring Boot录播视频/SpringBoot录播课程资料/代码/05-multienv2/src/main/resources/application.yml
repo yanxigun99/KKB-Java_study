@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: dev   # 默认选举dev环境
+    # active: pro   # 默认选举pro环境
+
+---
+spring:
+  profiles: dev
+server:
+  port: 8888
+  servlet:
+    context-path: /ddd
+
+---
+spring:
+  profiles: pro
+server:
+  port: 9999
+  servlet:
+    context-path: /ppp

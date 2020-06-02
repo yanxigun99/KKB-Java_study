@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/02-warproject" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/01-primary/pom.xml" />
+        <option value="$PROJECT_DIR$/02-warproject/pom.xml" />
+        <option value="$PROJECT_DIR$/03-actuator/pom.xml" />
+        <option value="$PROJECT_DIR$/04-errorpage/pom.xml" />
+        <option value="$PROJECT_DIR$/05-multienv/pom.xml" />
+        <option value="$PROJECT_DIR$/05-multienv2/pom.xml" />
+        <option value="$PROJECT_DIR$/06-readconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/07-jsp/pom.xml" />
+        <option value="$PROJECT_DIR$/08-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/09-logback/pom.xml" />
+        <option value="$PROJECT_DIR$/10-ssdm/pom.xml" />
+        <option value="$PROJECT_DIR$/11-dubbo-commons/pom.xml" />
+        <option value="$PROJECT_DIR$/11-dubbo-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/11-dubbo-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/12-interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/13-servlet/pom.xml" />
+        <option value="$PROJECT_DIR$/13-servlet2/pom.xml" />
+        <option value="$PROJECT_DIR$/14-filter/pom.xml" />
+        <option value="$PROJECT_DIR$/14-filter2/pom.xml" />
+        <option value="$PROJECT_DIR$/wrap-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/15-wraptest/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

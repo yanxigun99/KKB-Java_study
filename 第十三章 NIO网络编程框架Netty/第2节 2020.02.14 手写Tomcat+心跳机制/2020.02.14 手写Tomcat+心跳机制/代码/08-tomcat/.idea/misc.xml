@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../10-rpc-server/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../../第3节 2020.02.17 手写RPC框架/2020.02.17 手写RPC框架/代码/08-tomcat/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="13" project-jdk-type="JavaSDK" />
+</project>

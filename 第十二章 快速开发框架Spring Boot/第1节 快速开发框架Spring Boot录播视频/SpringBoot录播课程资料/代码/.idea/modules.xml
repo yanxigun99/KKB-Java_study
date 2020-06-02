@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-primary/01-primary.iml" filepath="$PROJECT_DIR$/01-primary/01-primary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-warproject/02-warproject.iml" filepath="$PROJECT_DIR$/02-warproject/02-warproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-actuator/03-actuator.iml" filepath="$PROJECT_DIR$/03-actuator/03-actuator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-errorpage/04-errorpage.iml" filepath="$PROJECT_DIR$/04-errorpage/04-errorpage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-multienv/05-multienv.iml" filepath="$PROJECT_DIR$/05-multienv/05-multienv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-multienv2/05-multienv2.iml" filepath="$PROJECT_DIR$/05-multienv2/05-multienv2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-readconfig/06-readconfig.iml" filepath="$PROJECT_DIR$/06-readconfig/06-readconfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07-jsp/07-jsp.iml" filepath="$PROJECT_DIR$/07-jsp/07-jsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/08-mybatis/08-mybatis.iml" filepath="$PROJECT_DIR$/08-mybatis/08-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09-logback/09-logback.iml" filepath="$PROJECT_DIR$/09-logback/09-logback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10-ssdm/10-ssdm.iml" filepath="$PROJECT_DIR$/10-ssdm/10-ssdm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11-dubbo-commons/11-dubbo-commons.iml" filepath="$PROJECT_DIR$/11-dubbo-commons/11-dubbo-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11-dubbo-consumer/11-dubbo-consumer.iml" filepath="$PROJECT_DIR$/11-dubbo-consumer/11-dubbo-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11-dubbo-provider/11-dubbo-provider.iml" filepath="$PROJECT_DIR$/11-dubbo-provider/11-dubbo-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12-interceptor/12-interceptor.iml" filepath="$PROJECT_DIR$/12-interceptor/12-interceptor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/13-servlet/13-servlet.iml" filepath="$PROJECT_DIR$/13-servlet/13-servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/13-servlet2/13-servlet2.iml" filepath="$PROJECT_DIR$/13-servlet2/13-servlet2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/14-filter/14-filter.iml" filepath="$PROJECT_DIR$/14-filter/14-filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/14-filter2/14-filter2.iml" filepath="$PROJECT_DIR$/14-filter2/14-filter2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/15-wraptest/15-wraptest.iml" filepath="$PROJECT_DIR$/15-wraptest/15-wraptest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wrap-spring-boot-starter/wrap-spring-boot-starter.iml" filepath="$PROJECT_DIR$/wrap-spring-boot-starter/wrap-spring-boot-starter.iml" />
+    </modules>
+  </component>
+</project>

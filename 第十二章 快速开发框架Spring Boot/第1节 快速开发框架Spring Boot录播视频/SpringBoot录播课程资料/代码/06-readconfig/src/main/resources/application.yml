@@ -1,0 +1,10 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /xxx
+
+# 自再定义配置
+car:
+  color: red
+
+

@@ -1,0 +1,4 @@
+server:
+  port: 8888   # 指定要监听的端口号
+  # servlet:
+    # context-path: /xxx    # 指定上下文路径

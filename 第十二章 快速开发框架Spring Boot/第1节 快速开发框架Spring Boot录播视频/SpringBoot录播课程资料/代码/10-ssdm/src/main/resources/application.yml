@@ -1,0 +1,36 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /xxx
+
+mybatis:
+  # 注册映射文件
+  mapper-locations: classpath:com/abc/dao/*.xml
+  # 注册实体类别名
+  type-aliases-package: com.abc.bean
+
+# 注册数据源
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 111
+
+  # 连接单机Redis
+  redis:
+    host: redis5OS
+    port: 6379
+    password: 111
+
+    # 连接Redis高可用集群
+    # sentinel:
+      # master: mymaster
+      # nodes: sentinel1:6379,sentinel2:6379,sentinel3:6379
+
+  cache:
+    # 指定当前应用所使用的缓存类型
+    type: redis
+    # 指定当前应用所使用的缓存区域名称
+    cache-names: realTimeCache

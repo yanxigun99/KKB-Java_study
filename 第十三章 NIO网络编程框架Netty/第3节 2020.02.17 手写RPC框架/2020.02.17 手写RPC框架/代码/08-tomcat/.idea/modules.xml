@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/08-tomcat.iml" filepath="$PROJECT_DIR$/08-tomcat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../10-rpc-api/10-rpc-api.iml" filepath="$PROJECT_DIR$/../10-rpc-api/10-rpc-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../10-rpc-client/10-rpc-client.iml" filepath="$PROJECT_DIR$/../10-rpc-client/10-rpc-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../10-rpc-server/10-rpc-server.iml" filepath="$PROJECT_DIR$/../10-rpc-server/10-rpc-server.iml" />
+    </modules>
+  </component>
+</project>

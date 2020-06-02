@@ -1,0 +1,8 @@
+server:
+  port: 8888
+
+some:
+  service:
+    # enable: true  # 对于前后辍启动的开头
+    prefix: $$$---
+    suffix: ---+++

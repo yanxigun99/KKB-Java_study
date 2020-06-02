@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/01-primary" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/02-warproject" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/03-actuator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/04-errorpage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-multienv" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/05-multienv2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-readconfig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/07-jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/08-mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/09-logback" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/10-ssdm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11-dubbo-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11-dubbo-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11-dubbo-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/12-interceptor" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/13-servlet" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/13-servlet2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/14-filter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/14-filter2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/15-wraptest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wrap-spring-boot-starter" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

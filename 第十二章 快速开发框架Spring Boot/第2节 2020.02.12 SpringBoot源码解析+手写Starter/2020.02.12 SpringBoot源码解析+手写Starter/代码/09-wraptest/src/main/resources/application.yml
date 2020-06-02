@@ -1,0 +1,5 @@
+wrap:
+  service:
+    enabled: false    # 前后辍开关
+    prefix: AAA-
+    suffix: -BBB

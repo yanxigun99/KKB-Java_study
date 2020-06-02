@@ -1,0 +1,35 @@
+server:
+  port: 8888   # 指定要监听的端口号
+  servlet:
+    context-path: /xxx    # 指定上下文路径
+
+# 设置info信息
+info:
+  company:
+    name: abc
+    url: http://www.abc.com
+    address: Beijing China
+
+  author:
+    name: 张三
+    depart: 研发部
+
+  project:    # 从pom文件中读取指定的属性值
+    groupid: @project.groupId@
+    artifactid: @project.artifactId@
+
+# 修改actuator监控器相关配置
+management:
+  server:
+    port: 9999              # 指定actuator监听的端口号
+    servlet:
+      context-path: /ooo    # 指定actuator监控器的上下文路径
+  endpoints:
+    web:
+      base-path: /base      # 指定actuator监控终端的基本路径
+      exposure:
+        include: "*"          # 开启所有监控终端
+        exclude: ["env", "health"]   # 指定要关闭的监控终端
+        # exclude:
+          # - env
+          # - info

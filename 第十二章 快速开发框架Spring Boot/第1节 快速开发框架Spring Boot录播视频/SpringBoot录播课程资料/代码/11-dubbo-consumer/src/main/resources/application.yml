@@ -1,0 +1,11 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /xxx
+
+spring:
+  application:
+    name: 11-dubbo-consumer
+
+  dubbo:
+    registry: zookeeper://zkOS:2181
