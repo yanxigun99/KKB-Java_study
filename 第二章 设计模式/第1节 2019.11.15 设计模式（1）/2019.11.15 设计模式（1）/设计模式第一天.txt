@@ -1,0 +1,64 @@
+课程主题
+	mybatis源码&设计模式中的七大设计原则
+	
+课程目标
+	1.要学会如何看源码？
+	2.要掌握mybatis中一些核心流程的源码解读
+	3.了解mybatis的插件开发--分页插件
+	4.了解UML的相关知识点
+	5.掌握设计模式中的七大设计原则
+	
+课程内容
+	1.mybatis源码阅读
+		阅读源码经验：
+			a)确定主线（一定不要钻牛角尖）
+			b)最好可以对该主线有一种预期（自己先想一想这个流程如何实现）
+			c)找入口（整个框架的总入口可能也就一到两个，对于其他的主线，都需要依赖总的主线去找入口）
+			d)借鉴其他人的阅读经验（百度、詹哥、其他同学。。。）
+			e)记笔记（txt、uml）
+	
+		解析主流程
+			入口：sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+			
+			SqlSessionFactoryBuilder#build()
+				|--XMLConfigBuilder：对全局配置文件解析的类
+					|--parse方法：具体解析入口
+						|--parseConfiguration方法
+						
+	2.自定义插件开发
+		针对四大组件进行拦截
+		
+	3.设计原则
+	
+		依赖倒置原则
+			类的成员本来、方法的参数、方法的返回值在使用时，能使用接口或者抽象层，不要去依赖具体的实现层
+			
+			UserService
+			
+			UserServiceImpl{
+				UserDao userDao;
+			}
+			
+			UserDaoImpl implements UserDao{
+			
+			
+			}
+			
+			
+			
+		UserServiceImpl{
+			
+		}
+		
+		CustomerServiceImpl{
+		
+		
+		}
+		
+		
+		组合类{
+		
+			UserServiceImpl
+			
+			CustomerServiceImpl
+		}
