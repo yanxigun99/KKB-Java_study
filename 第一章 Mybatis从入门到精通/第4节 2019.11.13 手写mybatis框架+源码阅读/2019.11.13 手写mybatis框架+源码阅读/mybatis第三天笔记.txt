@@ -1,0 +1,40 @@
+课程主题
+	手写mybatis框架&源码阅读
+	
+课程目标
+	1.通过手写mybatis执行流程的框架，深入了解执行流程是如何执行的。
+	2.对于四大组件的理解，要应用到手写框架中（预留作业）
+	3.掌握源码阅读的技巧
+	
+课程内容
+	1.手写mybatis的执行流程
+		原有的执行流程，就是JDBC代码
+		
+		a)先定访问接口（CRUD操作）
+			SqlSession（实现类拥有Configuration对象）
+				<T> T selectOne(String statementId,Object param);
+				<T> List<T> selectList(String statementId,Object param);
+				
+				selectOne会执行JDBC代码
+					需要获取连接（通过Configuration对象获取Connection）
+					需要sql语句(通过statementId去Configuration对象中找MappedStatement，然后获取sql语句)
+					需要入参
+					需要有返回值，根据要求提供合适的返回值
+		b)使用工厂生产SqlSession，这个工厂就是SqlSessionFactory（Configuration）
+		c)使用构建者模式去创建SqlSessionFactory对象，这个类就是SqlSessionFactoryBuilder
+			要想创建SqlSessionFactory，需要先有Configuration对象
+			
+			所以说需要先进行解析流程
+	2.源码阅读
+		a）准备好翻译工具。
+		b）要确定源码阅读的主线，比如整体解析主线（SqlNode解析主线、SqlSource解析主线）
+		c）找源码阅读入口。
+			啥时候调用框架，这个时候就是入口
+			
+		d）一定要参考别人的经验去阅读，不要埋头苦读
+			百度
+			詹哥出品
+			书籍
+		e）记阅读笔记（画流程图）
+	
+	

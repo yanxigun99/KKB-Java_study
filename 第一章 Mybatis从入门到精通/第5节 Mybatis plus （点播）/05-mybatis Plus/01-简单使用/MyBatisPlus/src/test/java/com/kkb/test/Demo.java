@@ -1,0 +1,46 @@
+package com.kkb.test;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.kkb.mapper.UserMapper;
+import com.kkb.pojo.User;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class Demo {
+	
+	@Autowired
+	private UserMapper userMapper;
+
+	@Test
+	public void testSelect(){
+		
+		// 此处 null 指的是不用根据参数去查询
+		// 可以调用 CRUD 相关的多种方式
+
+		// 1. 查询所有的数据
+		List<User> userList = userMapper.selectList(null);
+		userList.forEach(user -> System.out.println(user.getName()));
+		
+		// 2. 根据 id 删除
+		userMapper.deleteById(1);
+		
+		// 3. 添加数据
+		User user = new User();
+		user.setName("老王");
+		user.setEmail("laowang@kkb.com");
+		user.setAge(18);
+		userMapper.insert(user);
+		
+		// 4. 更新数据（此时插入的是）
+		user.setName("老王王");
+		user.setEmail("laowangwang@kkb.com");
+		userMapper.updateById(user);
+	}
+}

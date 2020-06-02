@@ -1,0 +1,54 @@
+课程主题
+	手写mybatis框架
+	
+课程目标
+	1.了解mybatis的sql解析过程
+	2.了解设计模式在框架中的使用
+	
+课程内容
+	注意实现：
+		可以理解，在mybatis的映射文件中一个CRUD标签对应一个MappedStatement对象。
+
+	mybatis中重要的类
+		解析阶段
+			Configuration、MappedStatement、SqlSource、SqlNode
+			BoundSql、ParameterMapping
+			
+			Resources
+			XMLConfigBuilder：用来按照mybatis的全局配置文件语义来解析全局配置文件
+				XMLMapperBuilder：用来按照映射文件语义拉解析映射文件
+					XMLStatementBuilder：用来解析映射文件中的select/insert等CRUD标签
+						XMLScriptBuilder：用来解析映射文件中select等CRUD标签sql文件信息的封装处理
+							select * from user 
+							<where>
+								<if>
+									...
+									
+								</if>
+							</where>
+						
+					
+			
+			
+		执行阶段
+			SqlSession接口
+			四大组件：Executor、StatementHandler、ParameterHandler、ResultSetHandler
+			
+		Integer id = 1;
+		String sql = "SELECT * FROM user WHERE id = " +  id;
+		
+		
+		Statment statement = conn.createStatement();
+		statement.execute(sql);
+		
+		PreparedStatement statement = conn.createPreparedStatement(sql);//statement预先编译sql
+		statement.setInteger(1,1);
+		statement.execute();
+		
+		
+		SELECT id,name,age FROM user ORDER BY age;
+		SELECT id,name,age FROM user ORDER BY name;
+		
+		
+		SELECT id,name,age FROM user ORDER BY ${column};
+		SELECT id,name,age FROM user ORDER BY #{column}; //这样行不行？
