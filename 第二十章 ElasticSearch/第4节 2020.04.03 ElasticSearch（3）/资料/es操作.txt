@@ -1,0 +1,133 @@
+1、索引库文档添加
+PUT /kaikeba/employee/1
+{
+"first_name" : "John",
+"last_name" : "Smith",
+"age" : 25,
+"about" : "I love to go rock climbing",
+"interests": [ "sports", "music" ]
+}
+PUT /kaikeba/employee/2
+{
+"first_name" : "Jane",
+"last_name" : "Smith",
+"age" : 32,
+"about" : "I like to collect rock albums",
+"interests": [ "music" ]
+}
+PUT /kaikeba/employee/3
+{
+"first_name" : "Douglas",
+"last_name" : "Fir",
+"age" : 35,
+"about": "I like to build cabinets",
+"interests": [ "forestry" ]
+}
+
+2、根据ID查询
+GET /kaikeba/employee/1
+
+3、简单的搜索查询
+GET /kaikeba/employee/_search
+
+
+4、查询字符串(query string)搜索--轻量级搜索
+GET /kaikeba/employee/_search?q=last_name:Smith
+
+5、使用DSL查询
+# 查询last_name : Smith
+GET /kaikeba/employee/_search
+{
+"query" : {
+"match" : {
+"last_name" : "Smith"
+}
+}
+}
+#
+GET /kaikeba/employee/_search
+{
+"query" : {
+"filtered" : {
+"filter" : {
+"range" : {
+"age" : { "gt" : 30 }
+}
+},
+"query" : {
+"match" : {
+"last_name" : "smith"
+}
+}
+}
+}
+}
+
+6、短语搜索
+GET /kaikeba/employee/_search
+{
+"query" : {
+"match_phrase" : {
+"about" : "rock climbing"
+}
+}
+}
+
+7、高亮搜索
+GET /kaikeba/employee/_search
+{
+"query" : {
+"match_phrase" : {
+"about" : "rock climbing"
+}
+},
+"highlight": {
+"fields" : {
+"about" : {}
+}
+}
+}
+
+8、聚合分析
+
+需求：统计大家的兴趣爱好？
+GET /megacorp/employee/_search
+{
+"aggs": {
+"all_interests": {
+"terms": { "field": "interests" }
+}
+}
+}
+
+需求：统计姓 Smith 的人兴趣爱好？
+GET /kaikeba/employee/_search
+{
+"query": {
+"match": {
+"last_name": "smith"
+}
+},
+"aggs": {
+"all_interests": {
+"terms": {
+"field": "interests"
+}
+}
+}
+}
+
+需求：统计每种兴趣下职员的平均年龄：
+GET /kaikeba/employee/_search
+{
+"aggs" : {
+"all_interests" : {
+"terms" : { "field" : "interests" },
+"aggs" : {
+"avg_age" : {
+"avg" : { "field" : "age" }
+}
+}
+}
+}
+}

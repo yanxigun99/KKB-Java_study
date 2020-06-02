@@ -1,0 +1,8 @@
+bin/elasticsearch -Ecluster.name=c_cluster -Epath.data=my_cluster_node1 -Enode.name=node1 -Ehttp.port=5100 -d
+bin/elasticsearch -Ecluster.name=c_cluster -Epath.data=cluster_node0 -Enode.name=node0 -d
+
+{
+   "transient": {
+        "cluster.routing.allocation.disk.watermark.low": "90%"
+    }
+}
