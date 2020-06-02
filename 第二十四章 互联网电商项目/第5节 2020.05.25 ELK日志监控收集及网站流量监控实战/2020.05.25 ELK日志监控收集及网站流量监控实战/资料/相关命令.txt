@@ -1,0 +1,122 @@
+今日课程大纲;
+1、认识分布式带来的运维挑战，日志分析
+2、认识elk stack 技术栈
+3、es head-master相关配置说明
+4、logstash日志收集相关配置
+	* 本地输入输出
+	* 输出到es
+	* 配置文件方式输入输出
+	* file日志收集
+	* java日志收集
+	* nginx日志收集
+5、kibana可视化
+6、elk上线
+	1) 日志分类
+	* 系统日志	rsyslog		logstash syslog插件
+	* 访问日志	nginx		codec json
+	* 错误日志	file		logstash multiline
+	* 运行日志	file		logstash codec json
+	* 设备日志	syslog		logstash syslog插件
+	* debug日志	file		logstash json or multiline
+	
+	beats ----------- > 日志采集
+	2）日志标准化
+	* 路径 固定
+	* 格式 json
+
+
+#编译nginx命令
+
+./configure \
+--prefix=/usr/local/src/nginx \
+--pid-path=/var/run/nginx/nginx.pid \
+--lock-path=/var/lock/nginx.lock \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--http-client-body-temp-path=/var/temp/nginx/client \
+--http-proxy-temp-path=/var/temp/nginx/proxy \
+--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
+--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
+--http-scgi-temp-path=/var/temp/nginx/scgi \
+--with-http_gzip_static_module
+
+#nginx json格式日志：
+
+log_format log_json 
+'{ "@timestamp": "$time_local", '
+'"remote_addr": "$remote_addr", '
+'"referer": "$http_referer", '
+'"request": "$request", '
+'"status": $status, '
+'"bytes": $body_bytes_sent, '
+'"agent": "$http_user_agent", '
+'"x_forwarded": "$http_x_forwarded_for", '
+'"up_addr": "$upstream_addr",'
+'"up_host": "$upstream_http_host",'
+'"up_resp_time": "$upstream_response_time",'
+'"request_time": "$request_time"'
+' }';
+
+elasticsearch安装（略）
+
+header-master安装：
+	下载：
+	* wget  https://github.com/mobz/elasticsearch-head/archive/master.zip
+	解压
+	* unzip master.zip
+	* 配置文件修改
+	* 根目录下：Gruntfile.js (connect--> server --> options -- > hostname:"*")
+	* _site/app.js : init --> this.base_uri = .... es服务器ip地址：9200
+	* 修改es服务器跨域访问：header-master访问es ,es必须支持跨域访问
+		http.cors.enabled: true  
+		http.cors.allow-origin: "*"
+
+logstash安装：
+	下载：必须注意：logstash 必须和es 版本一致
+	* wget https://artifacts.elastic.co/downloads/logstash/logstash-6.2.4.tar.gz
+	解压：
+	* tar -zxvf logstash-6.2.4.tar.gz 
+	启动：
+	* ./logstash -e 'input{ stdin{} } output{ stdout{} }'
+	* ./logstash -e 'input{ stdin{} } output{ stdout{ codec => json } }'
+	* ./logstash -e 'input{ stdin{} } output{ elasticsearch{hosts => ["192.168.66.66:9200"]}  stdout{ } }'
+	配置文件：在任一目录下创建xxx.conf文件
+	* 在config目录下创建test.conf
+	* 内容
+	input { stdin { } }
+	output {
+		elasticsearch { hosts => ["192.168.66.66:9200"] }
+		stdout { codec => rubydebug }
+	}
+	启动：
+	bin/logstash -f config/test.conf
+
+	file日志收集：
+	input {
+	    file{
+                path => "/var/log/messages"
+                type => "system"
+                start_position => "beginning"
+             }
+      }
+	output {
+		elasticsearch { 
+                 hosts => ["192.168.66.66:9200"] 
+                 index => "system-%{+YYYY.MM.dd}"
+                }
+		stdout { codec => rubydebug }
+	  }
+
+	  合并日志：
+
+
+
+
+kibana安装：
+	下载：
+	* wget https://artifacts.elastic.co/downloads/kibana/kibana-6.2.4-linux-x86_64.tar.gz
+	配置：
+	* server.port: 5601
+	* server.host: "192.168.66.66"
+	* elasticsearch.url: "http://192.168.66.66:9200"
+	* kibana.index: ".kibana" # kibana自己的索引库，存储自己的数据

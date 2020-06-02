@@ -1,0 +1,9 @@
+ELK语法命令--- 集合
+1、启动Logstash
+1) ./logstash -e 'input{stdin{}} output{stdout{}}'
+2) ./logstash -e 'input{stdin{}} output{stdout{ codec => json}}' #输出格式使用json格式
+3） ./logstash -e 'input{stdin{}} output{stdout{ codec => rubydebug}}' #输出格式使用rubydebug格式
+4）./logstash -e 'input{stdin{}} output{elasticsearch{hosts => ["192.168.66.66:9200"] }}' #指定日志写入ES索引库
+5）./logstash -e 'input{stdin{}} output{elasticsearch{hosts => ["192.168.66.66:9200"] } stdout{codec => rubydebug}}'
+2、配置文件
+1、bin/logstash -f config/java7.conf 
