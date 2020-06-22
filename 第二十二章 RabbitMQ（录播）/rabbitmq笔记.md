@@ -2,13 +2,11 @@
 
 ## 脑图
 
-![](G:\java\github\第二十二章 RabbitMQ（录播）\1592836518(1).png)
-
 ![1592836518(1)](1592836518(1).png)
 
 ## 01-AMQP协议模型
 
-![01-AMQP协议模型](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\01-rabbitmq\RabbitMQ_pic\01-AMQP协议模型.png)
+![01-AMQP协议模型](09-rabbitmq\01-rabbitmq\RabbitMQ_pic\01-AMQP协议模型.png)
 
 ## 02-RabbitMQ架构图
 
