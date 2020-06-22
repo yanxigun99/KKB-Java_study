@@ -2,7 +2,7 @@
 
 ## 脑图
 
-![1592836518(1)](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\01-rabbitmq\1592836518(1).png)
+![1592836518(1)](09-rabbitmq\01-rabbitmq\1592836518(1).png)
 
 ## 01-AMQP协议模型
 
