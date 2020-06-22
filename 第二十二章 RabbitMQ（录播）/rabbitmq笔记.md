@@ -6,15 +6,15 @@
 
 ## 01-AMQP协议模型
 
-![01-AMQP协议模型](09-rabbitmq\01-rabbitmq\RabbitMQ_pic\01-AMQP协议模型.png)
+![01-AMQP协议模型](01-AMQP协议模型.png)
 
 ## 02-RabbitMQ架构图
 
-![02-RabbitMQ架构图](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\01-rabbitmq\RabbitMQ_pic\02-RabbitMQ架构图.png)
+![02-RabbitMQ架构图](02-RabbitMQ架构图.png)
 
 ## 03-RabbitMQ消息流转
 
-![03-RabbitMQ消息流转](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\01-rabbitmq\RabbitMQ_pic\03-RabbitMQ消息流转.png)
+![03-RabbitMQ消息流转](03-RabbitMQ消息流转.png)
 
 ## demo
 
@@ -254,31 +254,31 @@ public class RabbitMQProducer2 {
 
 ## 脑图
 
-![1592837051(1)](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\02-rabbitmq\RabbitMQ 2019-7-6\1592837051(1).png)
+![1592837051(1)](1592837051(1).png)
 
 ## 01-交换机
 
-![01-交换机](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\02-rabbitmq\RabbitMQ 2019-7-6\01-交换机.png)
+![01-交换机](01-交换机.png)
 
 ## 02-Direct Exchange
 
-![02-Direct Exchange](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\02-rabbitmq\RabbitMQ 2019-7-6\02-Direct Exchange.png)
+![02-Direct Exchange](02-Direct Exchange.png)
 
 ## 03-Topic Exchange
 
-![03-Topic Exchange](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\02-rabbitmq\RabbitMQ 2019-7-6\03-Topic Exchange.png)
+![03-Topic Exchange](03-Topic Exchange.png)
 
 ## 04-Fanout Exchange
 
-![04-Fanout Exchange](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\02-rabbitmq\RabbitMQ 2019-7-6\04-Fanout Exchange.png)
+![04-Fanout Exchange](04-Fanout Exchange.png)
 
 ## 05-消息落库
 
-![05-消息落库](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\02-rabbitmq\RabbitMQ 2019-7-6\05-消息落库.png)
+![05-消息落库](05-消息落库.png)
 
 ## 06-消息延迟投递
 
-![06-消息延迟投递](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\02-rabbitmq\RabbitMQ 2019-7-6\06-消息延迟投递.png)
+![06-消息延迟投递](06-消息延迟投递.png)
 
 ## demo
 
@@ -928,16 +928,16 @@ public class SendMessage {
 
 ## 脑图
 
-![1592837952(1)](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\03-rabbitmq\1592837952(1).png)
+![1592837952(1)](1592837952(1).png)
 
 ## SET化架构
 
-![SET化架构](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\03-rabbitmq\pic\SET化架构.png)
+![SET化架构](SET化架构.png)
 
 ## 阿里两地三中心
 
-![阿里两地三中心](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\03-rabbitmq\pic\阿里两地三中心.png)
+![阿里两地三中心](阿里两地三中心.png)
 
 ## 两地三中心
 
-![两地三中心](G:\java\github\第二十二章 RabbitMQ（录播）\09-rabbitmq\03-rabbitmq\pic\两地三中心.png)
+![两地三中心](两地三中心.png)
