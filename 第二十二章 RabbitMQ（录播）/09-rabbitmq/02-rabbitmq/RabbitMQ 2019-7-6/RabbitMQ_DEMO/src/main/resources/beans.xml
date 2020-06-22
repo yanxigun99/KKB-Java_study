@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/rabbit
+        https://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <!-- 管理 HelloMessageListener -->
+    <bean id="helloMessageListener" class="com.kkb.spring_rabbitmq.HelloMessageListener"/>
+
+    <!-- 配置连接 -->
+    <rabbit:connection-factory id="connectionFactory" host="192.168.86.53" port="5672" username="guest"
+                               password="guest" virtual-host="/" requested-heartbeat="60"/>
+
+    <!-- 配置 RabbitTemplate -->
+    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" exchange="myExchange"
+                     routing-key="hello.msg001"/>
+
+    <!-- 配置 RabbitAdmin -->
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <!-- 配置队列名称 -->
+    <rabbit:queue name = "myQueue"/>
+
+    <!-- 配置 Topic 类型的交换器 -->
+    <rabbit:topic-exchange name="myExchange">
+        <rabbit:bindings>
+            <rabbit:binding pattern="hello.*" queue="myQueue"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+    <!-- 配置监听器 -->
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref="helloMessageListener" queue-names="myQueue"/>
+    </rabbit:listener-container>
+
+
+</beans>
