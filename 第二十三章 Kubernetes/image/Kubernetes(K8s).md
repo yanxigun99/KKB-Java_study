@@ -376,21 +376,21 @@ Kubernetes （k8s）是自动化容器操作的开源平台，这些操作包括
 
 ## 01_为什么要使用k8s
 
-![1592873355(1)](image\1592873355(1).png)
+![1592873355(1)](1592873355(1).png)
 
-![1592873391(1)](image\1592873391(1).png)
+![1592873391(1)](1592873391(1).png)
 
 ## 02_虚拟化技术原理
 
-![1592873494(1)](image\1592873494(1).png)
+![1592873494(1)](1592873494(1).png)
 
-![1592873521(1)](image\1592873521(1).png)
+![1592873521(1)](1592873521(1).png)
 
 ## 03_容器技术的理解
 
-![1592873568(1)](image\1592873568(1).png)
+![1592873568(1)](1592873568(1).png)
 
-![1592873578(1)](image\1592873578(1).png)
+![1592873578(1)](1592873578(1).png)
 
 # Kubernetes(K8s)
 
@@ -965,61 +965,61 @@ nq: 无须队列等待
 
 ## 01_pod核心原理
 
-![screenshot_20200623_095813](image\screenshot_20200623_095813.png)
+![screenshot_20200623_095813](screenshot_20200623_095813.png)
 
-![screenshot_20200623_100014](image\screenshot_20200623_100014.png)
+![screenshot_20200623_100014](screenshot_20200623_100014.png)
 
-![screenshot_20200623_100036](image\screenshot_20200623_100036.png)
+![screenshot_20200623_100036](screenshot_20200623_100036.png)
 
 ## 02_副本控制器
 
-![screenshot_20200623_100241](image\screenshot_20200623_100241.png)
+![screenshot_20200623_100241](screenshot_20200623_100241.png)
 
-![screenshot_20200623_100254](image\screenshot_20200623_100254.png)
+![screenshot_20200623_100254](screenshot_20200623_100254.png)
 
 ## 03_deployment资源对象
 
-![screenshot_20200623_100419](image\screenshot_20200623_100419.png)
+![screenshot_20200623_100419](screenshot_20200623_100419.png)
 
 ## 04_HPA自动扩容
 
-![screenshot_20200623_100454](image\screenshot_20200623_100454.png)
+![screenshot_20200623_100454](screenshot_20200623_100454.png)
 
 ## 05_StatefulSet资源对象
 
-![screenshot_20200623_100526](image\screenshot_20200623_100526.png)
+![screenshot_20200623_100526](screenshot_20200623_100526.png)
 
-![screenshot_20200623_100538](image\screenshot_20200623_100538.png)
+![screenshot_20200623_100538](screenshot_20200623_100538.png)
 
 ## 06_DaemonSet资源对象
 
-![screenshot_20200623_100633](image\screenshot_20200623_100633.png)
+![screenshot_20200623_100633](screenshot_20200623_100633.png)
 
 ## 07_pod如何实现访问
 
-![screenshot_20200623_100910](image\screenshot_20200623_100910.png)
+![screenshot_20200623_100910](screenshot_20200623_100910.png)
 
-![screenshot_20200623_100920](image\screenshot_20200623_100920.png)
+![screenshot_20200623_100920](screenshot_20200623_100920.png)
 
 ## 08_service 服务注册发现
 
-![screenshot_20200623_101042](image\screenshot_20200623_101042.png)
+![screenshot_20200623_101042](screenshot_20200623_101042.png)
 
-![screenshot_20200623_101102](image\screenshot_20200623_101102.png)
+![screenshot_20200623_101102](screenshot_20200623_101102.png)
 
-![screenshot_20200623_101115](image\screenshot_20200623_101115.png)
+![screenshot_20200623_101115](screenshot_20200623_101115.png)
 
-![screenshot_20200623_101125](image\screenshot_20200623_101125.png)
+![screenshot_20200623_101125](screenshot_20200623_101125.png)
 
 ## 09_service是如何产生的
 
-![screenshot_20200623_101321](image\screenshot_20200623_101321.png)
+![screenshot_20200623_101321](screenshot_20200623_101321.png)
 
 ## 10_service的负载策略问题
 
-![screenshot_20200623_101357](image\screenshot_20200623_101357.png)
+![screenshot_20200623_101357](screenshot_20200623_101357.png)
 
-![screenshot_20200623_101407](image\screenshot_20200623_101407.png)
+![screenshot_20200623_101407](screenshot_20200623_101407.png)
 
 # Harbor - 企业级Docker私有仓库
 
@@ -2008,27 +2008,27 @@ spec:
 
 # 图片
 
-![screenshot_20200623_102810](image\screenshot_20200623_102810.png)
+![screenshot_20200623_102810](screenshot_20200623_102810.png)
 
-![screenshot_20200623_102900](image\screenshot_20200623_102900.png)
+![screenshot_20200623_102900](screenshot_20200623_102900.png)
 
-![screenshot_20200623_102914](image\screenshot_20200623_102914.png)
+![screenshot_20200623_102914](screenshot_20200623_102914.png)
 
-![screenshot_20200623_102943](image\screenshot_20200623_102943.png)
+![screenshot_20200623_102943](screenshot_20200623_102943.png)
 
-![screenshot_20200623_102958](image\screenshot_20200623_102958.png)
+![screenshot_20200623_102958](screenshot_20200623_102958.png)
 
-![screenshot_20200623_103016](image\screenshot_20200623_103016.png)
+![screenshot_20200623_103016](screenshot_20200623_103016.png)
 
-![screenshot_20200623_103105](image\screenshot_20200623_103105.png)
+![screenshot_20200623_103105](screenshot_20200623_103105.png)
 
-![screenshot_20200623_103124](image\screenshot_20200623_103124.png)
+![screenshot_20200623_103124](screenshot_20200623_103124.png)
 
-![screenshot_20200623_103137](image\screenshot_20200623_103137.png)
+![screenshot_20200623_103137](screenshot_20200623_103137.png)
 
-![screenshot_20200623_103201](image\screenshot_20200623_103201.png)
+![screenshot_20200623_103201](screenshot_20200623_103201.png)
 
-![screenshot_20200623_103216](image\screenshot_20200623_103216.png)
+![screenshot_20200623_103216](screenshot_20200623_103216.png)
 
 # 问题
 
