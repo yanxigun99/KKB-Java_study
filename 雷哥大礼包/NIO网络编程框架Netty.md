@@ -1,0 +1,308 @@
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+1
+NIO网络编程框架Netty
+知识点暨面试题总结
+课程名称
+NIO网络编程框架Netty
+前5次直播
+课程内容
+——
+序号
+020501
+问题
+请简单描述一下Reactor模型在Netty中的应用。
+参考答案
+在Netty-Server中一般使用的是Reactor的多线程池模型，而Netty-Client中一般使用的是Reactor单线程池模型。具体来说，NioEventLoopGroup充当着线程池。每一个NioEventLoopGroup中都包含了多个NioEventLoop，而每个NioEventLoop又绑定着一个线程。
+一个NioEventLoop可以处理多个Channel中的IO操作，而其只有一个线程。所以对于这个线程资源的使用，就存在了竞争。此时为每一个NioEventLoop都绑定了一个多跑复用器Selector，由Selector来决定当前NioEventLoop的线程为哪些Channel服务。
+这就是Reactor模型在Netty中的应用。
+序号
+020502
+问题
+eventLoopGroup中用于存放eventLoop的数据结构是什么？
+参考答案
+eventLoopGroup中用于存放eventLoop的数据结构是数组。数组元素的个数可以在创建eventLoopGroup时指定，默认为当前主机逻辑内核数量的2倍。
+序号
+020503
+问题
+NioEventLoop的本质是什么，其包含了什么重要的变量？
+参考答案
+NioEventLoop是一个EventExecutor，是一个线程Executor，其还封装着一个executor，这个executor还绑定着一个线程，注册到这个NioEventLoop的selector的所有channel中就绪的IO事件及任务，都是由这个线程来完成的。
+序号
+020504
+问题
+NioEventLoopGroup的本质是什么，其包含了什么重要的变量？
+参考答案
+NioEventLoopGroup是一个线程池，是一个线程池Executor，其还封装着一个总的executor，这个executor绑定着一个threadFactory，同时
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+2
+NioEventLoopGroup
+还封装着一个用于存放eventLoop的数组。
+这个总的executor为其所包含的每一个eventLoop创建了一个子executor，然后这个总的executor所绑定的threadFactory会为每个子executor创建一个线程，用于完成相关任务。
+序号
+020505
+问题
+NioEventLoopGroup默认会创建和包含多少个NioEventLoop？
+参考答案
+在不指定创建数量的情况下，NioEventLoopGroup默认会创建当前主机逻辑内核数量的2倍数量的NioEventLoop。Netty系统会自动将这些NioEventLoop所绑定线程的执行平均分配到各个逻辑内核上。这样做是为了充分利用内核，提高系统性能。
+这个类似于Nginx中worker_processes与worker_cpu_affinity两个属性的设置。不同的是，Nginx是按照物理CPU数量进行设置，而Netty是按照逻辑内核数据进行设置。
+序号
+020506
+问题
+Server监听一个port仅需一个channel，而这个parentChannel仅会与绑定一个EventLoop，那么在parentGroup中创建多个EventLoop有什么用处呢？
+参考答案
+我们知道，一个Server可以监听多个端口，那么就需要多个parentChannel，那么也就可能会需要绑定parentGroup中的多个EventLoop了。注意，这里仅仅是可能。因为一个EventLoop上可以绑定多个channel。
+序号
+020507
+问题
+parentGroup中EventLoop的数量与当前Server所监听的port数量间有关系吗？
+参考答案
+(通过对上个问题的分析)我们知道，parentGroup中EventLoop的数量与当前Server所监听的port数量间是没有直接关系的。Server同时监听3个port，而parentGroup中仅有一个EventLoop也是可以的。
+但Group采用的是轮询方式向channel分配其EventLoop的。所以，一般设置Group中EventLoop的数量大于等于当前Server所监听的port的数量。为了提高效率，这个EventLoop的数量会取一个2的n次幂。
+序号
+020508
+问题
+一个Server同时监听了多个port的意义是什么呢？
+参考答案
+一个Server监听多个port可以创建多个parentChannel，而多个parentChannel一般会绑定多个EventLoop，从而使EventLoop的负载均衡了。
+不过，一般情况下，并不会使Client自行指定要连接的Server的port，因为这样仍无法真正实现对parentGroup的EventLoop的的负载均衡。一般会使Client访问一个路由服务器，例如Nginx，让路由服务器根据负载均衡策略，路由到相同Server的不同Port上。这样，就实现了对parentGroup中EventLoop的负载均衡。
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+3
+序号
+020509
+问题
+与eventLoop所绑定的线程是由谁创建的，是何时创建的？
+参考答案
+与eventLoop所绑定的线程是由eventLoopGroup所封装的executor创建的，确切地说，是由与这个executor所绑定的ThreadFactory创建的。是在完成channel注册到eventLoop的selector时创建的。
+序号
+020510
+问题
+由EventLoop绑定线程来完成的任务有几种类型？分别存放在哪里？
+参考答案
+由EventLoop绑定线程来完成的任务有三种类型：
+ 定时任务：该类型任务会存放到定时任务队列scheduledTaskQueue中。
+ 普通任务：该类型任务会存放到任务队列taskQueue中。我们在当前解析的Netty源码中见到的任务，都是这类任务。当然，定时任务最终也会从定时任务队列中逐个取出，然后放入到taskQueue中来执行。
+ 收尾任务：该类型任务会存放到任务队列tailTasks中。其定义方式与普通任务定义方式相同，只不过由于其主要用于完成一些收尾工作，所以被添加到了tailTasks队列中了。
+序号
+020511
+问题
+请简述Channel实例在创建过程中都完成了哪些重要任务。
+参考答案
+在创建Channel过程中完成了以下几个重要任务：
+ 生成了Channel的id
+ 创建了真正的数据传输对象Unsafe
+ 创建了与Channel相绑定的ChannelPipeline
+ 为Channel创建了其配置类ChannelConfig
+序号
+020512
+问题
+请简述一下ChannelPromise。
+参考答案
+ChannelPromise是一种特殊的ChannelFuture，其是可写的。该接口中具有很多的set方法，即是可以修改的，也就是可写的。其作用是，根据异步操作的结果：成功或失败，来修改这个Promise的相关属性，以使Promise的获得者可以获知异步执行结果。
+序号
+020513
+问题
+对于parentChannel，其在初始化过程中主要完成了哪些工作？
+参考答案
+该初始化channel过程，其实主要完成了两项工作：
+获取ServerBootStrap中的非child开头的属性，并初始化到channel中
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+4
+获取
+ServerBootStrap中的child开头的属性，并初始化到一个连接处理器中，然后再将这个连接处理器添加到channel的pipeline中
+序号
+020514
+问题
+连接处理器ServerBootstrapAcceptor是何时实例化的，作用是什么？
+参考答案
+连接处理器ServerBootstrapAcceptor主要是用于处理Client的连接请求。该处理器在Server启动时实例化到parentChannel的pipeline中。也就是说，一个parentChannel就会绑定一个连接处理器实例。而该连接处理器用于处理“由这个parentChannel接收的Client的连接请求”。
+当这个parentChannel接收到连接请求后，在其channelRead()方法中会将其接收到的消息强转为一个childChannel，然后使用在ServerBootstrap中配置的child开头的属性初始化这个childChannel，并将ServerBootstrap中通过childHandler配置的ChannelInitializer中指定的处理器添加到childChannel的pipeline中。
+序号
+020515
+问题
+NioEventLoop中有一个成员变量wakenUp，其是一个原子布尔类型。这个变量的值对于selector选择源码的阅读很重要。它的值代表什么意义？
+参考答案
+NioEventLoop中有一个成员变量wakenUp，其是一个原子布尔类型。其取值意义为：
+ true：表示当前eventLoop所绑定的线程处于非阻塞状态，即唤醒状态
+ false：表示当前eventLoop所绑定的线程即将被阻塞
+序号
+020516
+问题
+在selector中有一个方法wakeup()，其意义对于selector选择源码的阅读很重要。但这个方法的意义仅从其方法名上来理解，很容易产生误解。那么这个方法表示什么意思呢？
+参考答案
+该方法会使选择操作立即结束，保存选择结果到selector。而选择操作的结束，会使其调用者线程被唤醒。
+课程名称
+NIO网络编程框架Netty
+第6次直播
+课程内容
+1) client端启动源码解析（重点）
+2) Pipeline源码解析（重点）
+序号
+020601
+问题
+Client端Channel的创建过程与Server端parentChannel的创建过程相同。但其初始化过程略有不同。不同主要体现在哪里？
+参考答案
+parentChannel在初始化过程中需要将连接处理器注册到channel的pipeline中。这个连接处理器用于处理Client端的连接操作，为Client端
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+5
+在
+Server处生成其对应的childChannel，并注册到相应的selector。但Client端的channel无需注册连接处理器，因为它是连接的发出者，而非接收者。
+序号
+020602
+问题
+通过对ChannelFuture的isDone()方法的判断来处理异步完成后的情况，与为ChannelFuture添加的监听器来处理异步完成的情况，有什么不同。
+参考答案
+ChannelFuture的isDone()方法是对异步操作是否完成进行立即判断，而ChannelFuture的监听器回调方法则是在异步操作真正完成后才会触发。
+序号
+020603
+问题
+ChannelPipeline是在什么时候创建的？
+参考答案
+ChannelPipeline是在创建Channel是创建的，其是Channel一个很重要的成员。
+序号
+020604
+问题
+请简述channelPipeline。
+参考答案
+ChannelPipeline本质上是一个双向链表，默认具有头、尾两个节点。除了这两个节点外，其还可以通过channelPipeline的addLast()方法向其中添加处理器节点。每一个处理器最终都会被封装为一下channelPipeline上的节点。
+序号
+020605
+问题
+请简述一般处理器从ChannelPipeline中的删除过程。
+参考答案
+处理器从ChannelPipeline中的删除过程主要做了如下几项工作：
+ 从ChannelPipeline中查找是否存在该处理器对应的节点。若存在，则进行删除。
+ 由于其删除的是节点，所以，会首先从ChannelPipeline中找到该处理器节点，然后从ChannelPipeline的双向链表中删除该节点。
+ 最后触发该处理器handlerRemoved()方法的执行。
+序号
+020606
+问题
+在添加处理器到ChannelPipeline时可以为该处理器指定名称，若没有指定系统会为其自动生成一个名称。这个自动生成的名称格式是怎样的？
+参考答案
+在将处理器添加到ChannelPipeline中时若没有指定名称，系统会自动为其生成一个名称，该名称为该处理器类的简单类名后跟一个#，然后是一个数字。从0开始尝试。若该名称在ChannelPipeline中存在，则数字加一，直到找到不重复的数字为止。
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+6
+课程名称
+NIO网络编程框架Netty
+第7次直播
+课程内容
+1) Pipeline源码解析2（重点）
+2) Inbound/Outbound处理器源码解析（重点）
+序号
+020701
+问题
+在ChannelInitializer类上为什么需要添加@Sharable？
+参考答案
+@Sharable注解添加到一个处理器类上表示该处理器是共享的，可以被多次添加到同一个ChannelPipeline中，也可以被添加到多个ChannelPipeline中。
+服务端启动类中定义的ChannelInitializer实例是在Server启动时创建的，然后每过来一个Client连接，就会将其添加到一个childChannel的pipeline中。即一个ChannelInitializer处理器实例被添加到了多个不同的pipeline中。这也就是为什么需要在ChannelInitializer类上添加@Sharable注解的原因。
+序号
+020702
+问题
+对于ChannelInitializer处理器实例的创建、删除，都与一个initMap有成员变量相关。请简述这个initMap在ChannelInitializer处理器中的作用。
+参考答案
+ChannelInitializer处理器是一个共享处理器，为了减少内存的使用，在其中定义了一个成员变量initMap。它是一个Set集合，其中仅存放着一个元素：当前ChannelInitializer处理器构成的节点ctx。
+虽然ChannelInitializer处理器实例是共享的，但处理器构成的节点实例却是多例的。所以，对于ChannelInitializer处理器的删除，其仅仅就是从pipeline中删除了该节点ctx，然后从这个共享的initMap中删除了其存放的节点ctx。但ChannelInitializer处理器实例并没有被删除。
+一个childChannel会封装一个ChannelPipeline，而一个pipeline中就会有一个“由ChannelInitializer处理器构成的” ctx实例注册。但这个ChannelInitializer处理器实例却是共享的。
+序号
+020703
+问题
+简述在Server端bootstrap中定义的ChannelInitializer处理器的创建、添加时机，及添加到哪个channel的pipeline中了？
+参考答案
+在Server端bootstrap中定义的ChannelInitializer处理器的创建、添加时机，及添加位置如下：
+ 创建时机：在Server启动时被创建
+ 添加位置：最终会被添加到childChannel的pipeline中。因为其是通过bootstrap中的childHandler()完成的初始化
+ 添加时机：每过来一个Client连接，就会将该处理器添加到一个childChannel的pipeline中，但添加的这个处理器实例，都是在Server
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+7
+启动时创建的那一个
+序号
+020704
+问题
+简述在Client端bootstrap中定义的ChannelInitializer处理器的创建、添加时机，及添加到哪个channel的pipeline中了？
+参考答案
+在Client端bootstrap中定义的ChannelInitializer处理器的创建、添加时机，及添加位置如下：
+ 创建时机：在Client启动时被创建
+ 添加位置：被添加到Channel的pipeline中，Client端没有parentChannel与childChannel的区分
+ 添加时机：在Client启动时被添加
+序号
+020705
+问题
+ChannelInboundHandler中都包含了哪一类的方法？
+参考答案
+ChannelInboundHandler中包含了像channelRead()、channelRegistered()、channelActive()等回调方法，即由其它事件所触发的发法。
+序号
+020706
+问题
+ChannelOutboundHandler中都包含了哪一类的方法？
+参考答案
+ChannelOutboundHandler中包含了像bind()、connet()、close()等方法，这些方法一般都是由Outbound处理器实例主动调用执行的，而最终是由channel的unsafe完成的。
+序号
+020707
+问题
+简述一下ChanneHandler接口。
+参考答案
+ChanneHandler接口是ChannelInboundHandler与ChannelOutboundHandler接口的父接口，其包含两个方法handlerAdded()与handlerRemoved()。也就是说，这两个方法是所有处理器都具有的方法。
+序号
+020708
+问题
+ChanneHandlerContext接口对于ChannelPipeline的理解很重要，请简述一下ChanneHandlerContext接口。
+参考答案
+ChanneHandlerContext实例就是一个ChannelPipeline节点，是一个双向链表节点，其可以调用InboundHandler的方法，也可以调用OutboundHandler的方法，以引来触发下一个节点相应方法的执行。同时也可以获取到设置到channel中的attr属性。
+序号
+020709
+问题
+Channe中的attr属性是在哪里设置的？
+参考答案
+无论是Server还是Client，它们在启动时会创建并初始化bootstrap，
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+8
+此时可以调用其
+attr()或childAttr()方法，将指定的attr属性初始化到bootstrap中。然后在channel创建后进行初始化时会将bootstrap中配置的设置信息初始化到channel中。这些信息中就包含attr属性。
+序号
+020710
+问题
+简述一下ChannePipeline接口及其重要实现类DefaultChannelPipeline。
+参考答案
+ChannePipeline是一个ChannelHandlers列表。该接口是继承了ChannelInboundInvoker、ChannelOutboundInvoker接口，说明其可以触发Inbound处理器方法，可以调用Outbound处理器方法。同时，其也继承了Iterator操，说明其是可迭代的。
+该接口有一个重要实现类DefaultChannelPipeline。
+DefaultChannelPipeline类实现了ChannelPipline接口中有关ChannelInboundInvoker中的方法，这些方法基本都是调用了抽象节点类AbstractChannelHandlerContext的相关静态方法，去调用head节点的相应方法。
+DefaultChannelPipeline类还实现了ChannelPipline接口中有关ChannelOutboundInvoker中的方法，这些方法基本都是调用tail结点的相关方法，完成底层的真正执行。
+另外，DefaultChannelPipeline类还实现了ChannelPipline接口中Iterable接口的方法iterator()。其迭代的是一个map的entrySet，这个map的key为节点名称，而value为节点所封装的处理器实例。
+序号
+020711
+问题
+简述一下ChannelInboundHandlerAdapter 与 SimpleChannelInboundHandler处理器的区别及应用场景。
+参考答案
+若我们使用ChannelInboundHandlerAdapter，则需要我们自己释放msg，而使用SimpleChannelInboundHandler，则系统会自动释放。所以，使用哪个类作为处理器的父类，关键要看是否有需要释放的消息。
+一般情况下，若channelRead()中从对端接收到的msg(或其封装实例)需要通过writeAndFlush()等方法发送给对端，则该msg不能释放，所以需要使用ChannelInboundHandlerAdapter由我们自行控制msg的释放。当然，若根本就不需要从对端读取数据，则直接使用ChannelInboundHandlerAdapter。若使用SimpleChannelInboundHandler还需要重写channelRead0()方法。
+序号
+020712
+问题
+ChannelPipline与ChannelHandlerContext都具有fireChannelRead()方法，请简述一下它们的区别。
+参考答案
+ChannelPipline中的fireChannelRead()方法会从head节点的channelRead()方法开始触发pipeline中节点的channelRead()方法；而ChannelHandlerContext中的fireChannelRead()方法则是触发当前节点的后面节点的channelRead()方法。
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+9
+序号
+020713
+问题
+简述在pipeline中的多个处理器中都定义了channelActive()与handlerAdded()两个方法，请简述它们执行的区别。
+参考答案
+在pipeline中的多个处理器中的多个channelActive()方法，只有第一个该方法会执行，因为channel只会被激活一次。而handlerAdded()方法则不同，所以处理器中的该方法都会在当前处理器被添加到pipeline时被触发执行。
+序号
+020714
+问题
+简述消息在inboundHandler、outboundHandler中的传递顺序，及发生异常后，异常信息在inboundHandler、outboundHandler中的传递顺序。
+参考答案
+消息在inboundHandler中channelRead()方法中的传递顺序为，从head节点开始逐个向后传递，直到传递给tail节点将该消息释放。
+消息在outboundHandler中write()方法中的传递顺序为，从tail节点开始逐个向前传递，直到传递到head节点，然后调用unsafe的write()方法完成底层写操作。
+若发生异常，异常信息会从当前发生异常的节点开始调用exceptionCaught()方法，并向后面节点传递，无论后面节点是inboundHandler还是outboundHandler，最后传递到tail节点的exceptionCaught()方法，将异常消息释放。
+当然，前述的向后传递或向前传递的前提是，必须要在节点方法中调用传递到下一个节点的方法，否则是无法传递的。

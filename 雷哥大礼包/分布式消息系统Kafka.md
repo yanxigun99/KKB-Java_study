@@ -1,0 +1,120 @@
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+1
+分布式消息系统Kafka
+知识点总结暨面试题
+第1次直播课
+【知识点01】请简述Kafka中Broker、Topic、Partition及Segment间的关系。
+【解答参考】Kafka中的Broker指的就是Kafka集群中的一个节点，就是一台Kafka主机。Broker中可以存放很多的消息，但这些消息是分类存放的，一类就是一个Topic。每一类的消息在一台Broker中都被集中存放在了一起，被放在了一个目录中，这个目录称为Partition。但消息本身并不是文件，其需要存放到文件中。用于存放消息的文件称为Segment。
+一个Topic的消息可以被存放到多个Broker中，一个Broker中可以存放一个Topic的多个Partition，而一个Partition中可以存放很多的Segment，一个Segment中可以存放很多的消息。
+【知识点02】Kafka与其它MQ相比，其最大的特点就是高吞吐率。Kafka中消息存放的顺序存放是实现高吞吐率的重要特征。请简述一下Kafka中消息的顺序存放特性。
+【解答参考】Kafka中消息的顺序存放指的是一个Segment中消息的存放是顺序存放的。为了能够存放大量的消息，Kafka是将消息直接存放在了磁盘。由于磁盘是一个低速IO设备，为了提高IO速度，就想将Broker中同一Topic的消息顺序存放在磁盘。但一个Topic的消息量是非常庞大的，但到底有多大，并不确定，因为其是一直在增长的。为了便于连续磁盘空间的分配，就将一个Topic的消息写入到一个文件中，这个文件的最大大小通过配置可以固定。即在磁盘中查找到一块连接的指定大小的空间是可以完成的。这个文件称为Segment。随着消息量的不断增长，Segment文件越来越多，为了便于管理，将同一Topic的Segment文件都存放到一个或多个目录中，这些目录就是Partition。通过以上叙述可知，Segment中的消息是顺序存放的，而Partition中的这些Segment文件的存储并不是顺序存放的。
+【知识点03】Kafka中的Segment实际是一套文件，其中最为重要的是.log与.index文件。这两个文件的文件名是相同的。请简述文件名的意义及这两个文件的关系。
+【解答参考】Kafka中的segment是一个逻辑概念，其包含两类重要的物理文件，分别为“.index”文件和“.log”文件。“.log”文件中存放的是消息，而“.index”文件中存放的是“.log”文件中消息的索引。
+这两个文件的文件名是成对出现的，即会出现相同文件名的log与index文件。文件名由20位数字字符组成，其要表示一个64位长度的数值（2的64次方是一个长度为20的数字）。但作为文件名，其数值长度不足20位的全部用0填补。
+这个64位长度的数值表示当前segment文件之前有多少条消息。那么，第一个segment文件的文件名就应是由20个0组成，因为其前面没有消息了。
+ 第0号segment文件，表示其前面没有消息。
+00000000000000000000.index
+00000000000000000000.log
+ 第170210号segment文件，表明其前面有170210个消息。
+00000000000000170210.index
+00000000000000170210.log
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+2
+ 第239430号segment文件，表明其前面有239430个消息。
+00000000000000239430.index
+00000000000000239430.log
+【知识点04】消费者准备消费编号为170213的消息，这个消费者是如何找到这条消息的？请简述这个查找过程。
+【解答参考】Kafka中的消息是存放在相应相应partition的相应segment中的。对于消费者来说，每个消费者其消费的partition是系统自动分配好的，所以其不用查找partition。但一个partition中的segment会有很多，而segment中包含index与log两个重要文件。简单来说，消费者是通过index文件找到log文件中包含的消息的。
+具体过程是这样的：170213这个称为消息在partition中的偏移量offset。首先拿170213这个offset通过二分法在所有segment文件名中查找对应文件。当定位到segment文件名为00000000000000170210的文件后，进行减法运算：170213 – 170210 =3。然后再在该名称的index文件中定位到2号（编号从0开始），而2号对应的偏移地址为0348。最后在当前log文件中直接定位到0348地址处即可找到该消息。
+不过，这里还有个问题：消费者并不知道这个消息的大小，而log中的消息是顺序存放的。消费者是如何知道这条消息已经读取完毕了呢？存放在log文件中的消息并不仅仅是一个单纯的消息，其是由若干元数据构成的、具有固定格式的一个消息体。即每个消息体都有相应的开始标识位。当读到下一个消息的开始标识位时，表示当前消息已经结束。
+【知识点05】Kafka中为了减轻单台broker的压力，一般会为Topic设置多个partition。那么，一个Topic设置多少个partition合适呢？
+【解答参考】假设某topic中有N个partition，集群中有M个broker，则broker与partition
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+3
+间的关系如下所述：
+ 若N>M，且N是M的整数倍（N%M=0），那么每个broker会平均存储该topic的多个partition。
+ 若N>M，但N不是M的整数倍（N%M!=0），那么就会出现broker中partition分布不平均的情况。应尽量避免这种情况的发生，这种情况容易导致Kafka集群消息不均衡，各个broker的任务压力不均衡。
+ 若N<M，则会有N个broker存储该topic的一个partition，剩下的（M-N）个broker将不存储该topic的partition消息。
+通过以上分析可知，partition的数量最好是broker数量的整数倍。
+【知识点06】请总结一下Kafka中Consumer Group中的Consumer与其要消费的Topic中的partition间的数量关系。
+【解答参考】Consumer Group中组内consumer与其要消息的Topic的partition的关系是1:n，partition与组内consumer的关系则是1:1。也就是说，在稳定状态下，一旦为某组内consumer分配了某一个或几个partition后，就不会发生变化了；反过来说，一旦为某partition分配了组内consumer，就不会再为其分配其它组内consumer了。
+【知识点07】Kafka中一个partition只允许一个Consumer Group中的一个组内Consumer进行消费。请简述这样设计的优劣。
+【解答参考】Kafka中一个partition只允许一个Consumer Group中的一个组内Consumer进行消费。而一个组内Consumer可以消费同一Topic的多个parittion。这样设计的好处是，对于每个parition中消费消费的偏移量控制简单。不足是，无法让同一个组内的consumer均匀消费消息，因为消息在同一Topic的parition中的存放并不是平均的。一旦组内consumer与parition的消费关系确立，则可能会导致某些组内consumer需要消费的消息量很大，有的组内consumer可能无消息可消费。
+【知识点08】我们知道，Kafka中partition的数量最好是broker数量的整数倍。但具体来说，是一倍、两倍，还是三倍，如何选择呢？
+【解答参考】Kafka中partition的数量最好是broker数量的整数倍。但应该设置为几倍，需要根据实际需求中一个消费者组包含消费者的数量。我们知道，Kafka的设计要求，同一消费者组中两个消费者是不能同时消费同一个partition的。若Consumer Group中包含的消费者数量较多，而其消费的Topic的partition数量较少，则会导致很多消息者是闲置的。降低了Consumer Group的消费能力。所以，一个Topic中包含的partition数量，与其消费者组中包含的消费者数量要相匹配，这样可以充分发挥消费者组的消费能力。
+【知识点09】为了保障消息的安全性，我们会为Kafka的parition设置副本。每个partition可能有多个副本，但有且仅有一个作为Leader，其余的都是Follower。partition Leader与Follower间是主从还是主备关系？
+【解答参考】Kafka中partition Leader与Follower间是主备关系。Leader负责对外提供读写服务，即producer与consumer操作的都是parititon leader。所有Follower都需要从Leader同步消息，但平时对外是不提供服务的。一旦leader出现问题，会从follower马上再选举出一个新的leader。
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+4
+【知识点10】在Kafka的副本中有AR、ISR与ORS概念，它们都是什么意思，它们间是什么关系？
+【解答参考】Kafka中某个partition的所有的副本统称为Assigned Replicas，即AR。初始时leader与所有follower都在ISR(In-Sync Replicas)列表，即初始时ISR = AR。ISR中的partition是要从leader同步消息的。但同步会有延迟，只要延迟超过了阈值replica.lag.time.max.ms，就会把follower剔除出ISR，移入OSR(Outof-Sync Replicas)列表。故AR=ISR+OSR。
+ISR由leader负责维护，leader会对OSR中的follower进行定期检测，以查看其是否适合重新进入到ISR。
+第2次直播课
+【知识点01】在Kafka中有一个Rebalance的概念，请简述一下。
+【解答参考】在Kafka中，当消费者组中消费者数量发生变化，或Topic中的partition数量发生了变化时， partition的所有权会在消费者间转移，即partition会重新分配，这个过程称为再均衡Rebalance。
+再均衡能够给消费者组及broker集群带来高可用性和伸缩性，但在再均衡期间消费者是无法读取消息的，即整个broker集群有一小段时间是不可用的。因此要避免不必要的再均衡。
+【知识点02】在Kafka中当消费者消费完消息后需要提交其消费过消息的offset，这个offset保存在哪里？
+【解答参考】在Kafka中，老版本的消费offset是存储的zookeeper中的， 但是zookeeper 并不适合频繁的读/写操作，所以在新版本的中消费offset存放到了__consumer_offsets内置topic的partition中了。该主题的partition默认有50个，那么Consumer Group消费的offset存放的分区索引可以通过如下公式计算：Math.abs(groupID.hashCode()) % 50。
+【知识点03】Kafka中的partition leader与broker controller是什么，是由谁选举出来的？
+【解答参考】Kafka中为了保障消息的高可用性，一般会为partition创建副本。副本中partition leader负责对外提供服务，而partition follower则仅同步leader中的数据。当partition leader出现 ，则立马由broker controller从follower中选举出来一个新的leader。其实所谓选举，其实就是“按资排辈”。从ISR列表中找到第一个follower作为新的leader。
+broker controller负责管理分区与副本，例如partition leader的选举。broker controller由zk负责选举。其选举算法就是zk中“Master的选举”应用场景，即由kafka集群中的broker在zk中创建一个临时节点，谁先创建了谁就是broker controller。一般情况下就是，哪个broker先启动了，哪个就是broker controller。
+【知识点04】Kafka中的生产者生产的消息被写入到了哪个partition？消费者将offset提交到了哪里？这两个问题有什么联系？
+【解答参考】前两个问题其实都是Kafka中生产者的消息路由策略。只不过，消费者提交的offset是一种特殊的消息，其是提交到了一个名称为__consumer_offsets的特殊主题的相应partition。__consumer_offsets主题默认有50个分区。
+对于普通消息的路由，其路由规则如下：
+1) 若指定了消息要写入的partition，则直接写入到指定的partition；
+2) 若未指定partition但指定了消息的key，则通过对key的hash值与partition数量取模，
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+5
+该取模结果就是要选出的partition索引；
+3) 若partition和key都未指定，则使用轮询算法选出一个partition。
+对于消费者提交offset，这个offset是一种特殊的消息，该消息的key为消费者组的Id。offset要写入到__consumer_offsets主题的哪个partition，其索引的计算方式与前面说的相同：通过groupId的hashCode与50取模。最终这个offset被提交到了这个partition。
+【知识点05】Kafka中消息的生产者会将消息写入到broker中，这个过程是一个相对比较复杂的过程。请详细描述一下这个写入过程。
+【解答参考】消息生产者将消息发送给broker，并形成最终的可供消费者消费的log，是一个比较复杂的过程。具体过程如下：
+1) producer向broker集群提交连接请求，其所连接上的任意broker都会向其发送broker controller的通信URL，即broker controller主机配置文件中的listeners地址
+2) 当producer指定了要生产消息的topic后，其会向broker controller发送请求，请求当前topic中所有partition的leader列表地址
+3) broker controller在接收到请求后，会从zk中查找到指定topic的所有partition的leader，并返回给producer
+4) producer在接收到leader列表地址后，根据消息路由策略找到当前要发送消息所要发送的partition leader，然后将消息发送给该leader
+5) leader将消息写入本地log，并通知ISR中的followers
+6) ISR中的followers从leader中同步消息后向leader发送ACK
+7) leader收到所有ISR中的followers的ACK后，增加HW，表示消费者已经可以消费到该位置了
+8) 当然，若leader在等待的followers的ACK超时了，发现还有follower没有发送ACK，则会将该follower从ISR中清除，然后增加HW。
+【知识点06】Kafka中的HW机制是什么？（或Kafka中的HW截断机制是什么？）
+【解答参考】HW，HighWatermark，高水位，表示Consumer可以消费到的最高partition偏移量。在Kafka中与HW相关的机制有两种：HW机制与HW截断机制。它们都是为了保证partition leader与follower间数据的一致性。只不过它们处理的场景不同。
+ HW机制：该机制在Kafka集群正常运行状态下可以防止partition leader与follower间出现数据不一致。该机制要求，对于partition leader新写入的消息，consumer不能立刻消费。leader会等待该消息被所有ISR中的partition follower同步后才会更新HW，此时该消息才能被consumer消费。
+ HW截断机制：该机制在Kafka中partition leader出现宕机情况然后又恢复时，可以防止partition leader与follower间出现数据不一致。当原Leader宕机后又恢复时，将其LEO回退到其宕机时的HW，然后再与新的Leader进行数据同步，这种机制称为HW截断机制。
+【知识点07】Kafka是如何保证消息发送的可靠性的？
+【解答参考】Kafka的消息生产者有一个配置属性acks，用于指定消息发送的可靠性级别的。
+ 0值：异步发送。生产者向kafka发送消息但不需要kafka反馈成功ack。该方式效率最高，但可靠性最低。其可能会存在消息丢失的情况。
+ 1值：同步发送，默认值。生产者发送消息给kafka，broker的partition leader在收到消
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+6
+息后马上发送成功ack，生产者收到后才会再发送消息。如果一直未收到kafka的ack，则生产者会认为消息发送失败，会重发消息。
+ -1值：同步发送。其值等同于all。生产者发送消息给kafka，kafka收到消息后要等到ISR列表中的所有副本都同步消息完成后，才向生产者发送成功ack。如果一直未收到kafka的ack，则认为消息发送失败，会自动重发消息。
+【知识点08】Kafka的消息生产者设置acks属性值为1时，能否使生产者确认它发送的消息发送成功或失败呢？
+【解答参考】Kafka的消息生产者设置acks属性值为1时表示，生产者发送消息给kafka，broker的partition leader在收到消息后马上发送成功ack，生产者收到后才会再发送消息。如果一直未收到kafka的ack，则生产者会认为消息发送失败，会重发消息。
+该方式不能使生产者确认其发送的消息一定成功。例如，当partition leader收到消息后向生产者发送了ACK，在ISR中的Follower还未同步时leader挂了，此时，leader先前收到的消息对于kafka来说就不存在，但对于生产者来说，kafka已经接收成功。但实际上该消息已经丢失。所以，无法保证消息不丢失。
+但该方式可以使生产者确认其发送的消息失败。只要在超时时限内生产者没有收到ACK就表示消息发送失败。发送失败，生产者会重新发送。
+【知识点09】Kafka的消息生产者设置acks属性值为all时，基本可以保证消息的不丢失。但却可能会引发消息的重复接收。为什么？
+【解答参考】Kafka的消息生产者设置acks属性值为all时表示，生产者发送消息给kafka，kafka收到消息后要等到ISR列表中的所有副本都同步消息完成后，才向生产者发送成功ack。如果一直未收到kafka的ack，则认为消息发送失败，会自动重发消息。
+这种模式下可靠性很高，很少会出现消息丢失的情况。但可能会出现部分Follower重复接收消息的情况。例如生产者发送消息给partition leader，然后ISR中的follower要同步消息。当follower同步还未完成时partition leader挂了，此时不会发送ack给生产者。由于发送者没有收到ack，所以生产者会再次发送消息给新的Leader。若新的Leader曾经同步过一部分原来的消息，那么此时又接收到相同的消息，此时leader中的消息就会有重复消息。
+该模式下kafka对消息的重复接收问题无法直接解决。但可以想办法对于重复接收的消息不进行重复消费：为消息指定唯一标识key，然后在消费者端定义去重机制。当然，消费者端的去重，是需要开发人员自己定义的。
+【知识点10】Kafka中partition leader若挂了，一般会选择ISR中的follower作为新的leader。这个新leader的选举是由谁完成的？若ISR中没有其它follower能否选举出新的leader？
+【解答参考】kafka中partition leader若挂了，broker controller会选择ISR中的follower作为新的leader。若ISR中没有其它follower能否选举出新的leader，可以通过broker的属性设置unclean.leader.election.enable的值来确定。
+ 若该值为false，则只能从ISR中选择。
+ 若该值为true，在ISR中没有副本的情况下可以选择任何一个该Topic的partition作为新的leader，该策略可用性高，但可靠性没有保证。
+【知识点11】Kafka中partition leader若挂了，通过设置允许其从任意没有宕机的主机的partition中选举新的leader，这种情况可能会导致大量数据的丢失，为什么？
+【解答参考】在ISR中没有副本的情况下可以选择的partition只能是OSR中的。一个partition
+开课吧 Reythor 雷课程知识点暨面试题总结
+讲师：Reythor 雷
+7
+只所以能够进入到OSR，就是因为其与原来的leader的通信出现了问题。若该partition成为了新的leader，则可能会出现这个新的leader与其它所有副本均无法通信的情况。但由于其为leader，所以其只会认为是其它副本出现了问题，从而导致该leader的ISR中没有follower。而没有follower的风险是很高的，这个leader的失效将会导致大量消息的丢失。
+【知识点12】Kafka中，当一个Consumer Group中仅包含一个Consumer时，若其消费能力较低，则可能会引发重复消费。为什么？怎么解决？
+【解答参考】正常情况下，consumer在“自动提交超时时限”内消费完一批消息后会自动提交offset。但当consumer消费能力比较低时，其取出的一批消息在阈值时间内没有消费完毕，此时consumer会向broker提交一个异常。此时broker不会认为该consumer宕机，因为当前consumer向broker提交了信息。
+对于consumer来说，由于本次消费过程在时限内没有完成，即没有成功，所以该consumer会再从该partition中拉取消息。由于前面没有提交offset，所以这次拉取的消息与上次的是相同的。该consumer又重新消费之前的那一批消息，然后就又出现了消费超时，所以会造成死循环，一直消费相同的消息。
+对于这种情况下的重复消费的解决方案是，延长offset自动提交时间，即增加自动提交超时时限auto.commit.interval.ms的值。或将自动提交改为手动提交，真正消费完毕后再进行提交。
