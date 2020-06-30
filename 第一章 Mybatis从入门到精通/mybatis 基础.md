@@ -1,4 +1,242 @@
-**Mybatis**
+# **Mybatis**
+
+# 第一天笔记
+
+课程主题
+	mybatis框架原理分析&手写实现
+	
+课程目标
+	1.掌握mybatis的架构原理（java开发）
+	2.掌握mybatis的执行流程原理（两张图）
+	3.掌握mybatis的mapper代理方式的执行流程（一张图）
+	4.分析mybatis核心类的作用（解析流程的类、执行流程的类等）
+	5.解析流程手写实现
+	
+课程内容
+	1.mybatis的知识图谱介绍
+		mybatis知识
+			如何写dao代码
+				原始dao开发方式
+					dao接口和实现类
+				mapper代理开发方式（推荐）
+					mapper接口
+			如何配置
+				全局配置（一次性配置即可）
+					数据源
+				映射配置（重点）
+					输入映射&输出映射
+					动态sql标签
+					二级缓存配置
+					关联映射配置
+					延迟加载配置
+					
+		mybatis generator(逆向工程)
+		myabtis plus(mp)
+		tk.mybatis(通用mapper)
+		PageHelper
+	2.mybatis的架构原理
+		见图
+		
+		框架的作用：简化开发
+		
+	3.mybatis手写框架分析（封装JDBC代码）
+	
+		解析流程
+			全局配置文件	mybatis-config.xml	------	Configuration对象
+				数据源
+				关联配置映射文件
+			
+			映射文件	UserMapper.xml			------	封装多个MappedStatement对象（一个select标签就对应一个MappedStatement对象）
+												------	这些MappedStatement对象都需要封装到Configuration对象中
+																				
+				SQL语句（不是一个JDBC拿来即用的SQL语句，它【需要特殊处理】）
+				输入参数Java类型
+				输出结果Java类型
+				statementType：不配置的话，默认就是PreparedStatement
+
+
+​		
+		执行流程
+			// 获取Connection连接（找Configuration对象要数据源信息，然后通过数据源对象获取连接）
+	
+			// 获取SQL语句（通过Configuration找MappedStatement对象，通过MappedStatement对象，获取SQL语句【需要特殊处理】）
+				将带有#{}或者${}的SQL语句，进行处理
+					#{} 	替换成?的同时，需要将#{}中 的【参数名称】获取出来，还要把对应的【参数类型】也解析出来
+							需要将参数名称和参数类型封装成一个对象ParameterMapping（组合了参数名称和参数类型），放入一个List集合中进行存储。
+							
+							为什么把解析出来的参数信息放入List集合呢？
+
+
+​							
+​							
+					${}		它随着SQL的解析就把对应位置的参数给替换了
+						${}取值使用到的是OGNL表达式
+					
+					如果既有${}又有#{}此时解析的思路是先解析${}获得一个sql语句，然后再将该sql语句解析#{}
+				
+			// 创建 statement	（根据MappedStatement中的statementType去创建PreparedStatement、CallableStatement、Statement）
+			
+			// 设置参数	(需要从MappedStatement对象中获取入参类型，方便知道如何从入参对象中获取参数)
+				知道入参对象
+				知道入参类型（MappedStatement获取入参类型）
+			
+				preparedStatement.setString(1, "王五");
+				
+				在传入入参对象的前提下，想从入参对象中获取“王五”这个值，需要知道入参类型。
+				
+				比如：入参类型是String	直接把值设置到？占位符
+					  入参类型是Map		需要根据参数名称（username）获取Map中指定key的值。
+					  
+				注意事项：当SQL语句中只需要一个参数的时候，可以使用String和8种基本类型
+						  当SQL语句中需要多个参数的时候，只能使用Map或者PO对象
+					
+				综上所述，入参类型，其实就是为了去入参对象中获取值
+				
+				mybatis的语法如下：
+					select * from user where id = #{id}						入参类型		Integer
+					select * from user where name = #{name}					入参类型		String
+						如果入参类型是String或者8种基本类型的话，我们不需要关心#{}中的值是什么就可以获取到入参的值
+					
+					select * from user where id = #{id}	and name = #{name}	入参类型		Map、User对象
+						获取SQL语句（需要解析阶段和执行阶段中的获取SQL部分去进行处理）
+					select * from user where id = ?	and name = ?
+						如果入参类型是Map类型的话，我们需要关心#{}中的值是什么，因为只有知道#{}中的值，我们才知道Map中的key是哪个？
+
+
+​						
+​						
+			// 向数据库发出 sql 执行查询，查询出结果集
+				
+			// 遍历查询结果集
+				ResultSet----->List<输出结果类型>
+					利用反射，去将输出结果类型中的属性值去设置（值的来源就是和【属性名称】完全一样的【列名的值】）
+			// 释放资源
+
+
+​		![1584500581](1584500581.png)
+​	
+
+![1584501143(1)](1584501143(1).png)
+
+![1584501787(1)](1584501787(1).png)
+
+![1584534339(1)](1584534339(1).jpg)
+
+![1584577594(1)](1584577594(1).png)
+
+![1584578485(1)](1584578485(1).png)
+
+# 第二天笔记
+
+课程主题
+	手写mybatis框架
+	
+课程目标
+	1.了解mybatis的sql解析过程
+	2.了解设计模式在框架中的使用
+	
+课程内容
+	注意实现：
+		可以理解，在mybatis的映射文件中一个CRUD标签对应一个MappedStatement对象。
+
+	mybatis中重要的类
+		解析阶段
+			Configuration、MappedStatement、SqlSource、SqlNode
+			BoundSql、ParameterMapping
+			
+			Resources
+			XMLConfigBuilder：用来按照mybatis的全局配置文件语义来解析全局配置文件
+				XMLMapperBuilder：用来按照映射文件语义拉解析映射文件
+					XMLStatementBuilder：用来解析映射文件中的select/insert等CRUD标签
+						XMLScriptBuilder：用来解析映射文件中select等CRUD标签sql文件信息的封装处理
+							select * from user 
+							<where>
+								<if>
+									...
+									
+								</if>
+							</where>
+
+
+​					
+​			
+​			
+		执行阶段
+			SqlSession接口
+			四大组件：Executor、StatementHandler、ParameterHandler、ResultSetHandler
+			
+		Integer id = 1;
+		String sql = "SELECT * FROM user WHERE id = " +  id;
+
+
+​		
+		Statment statement = conn.createStatement();
+		statement.execute(sql);
+		
+		PreparedStatement statement = conn.createPreparedStatement(sql);//statement预先编译sql
+		statement.setInteger(1,1);
+		statement.execute();
+
+
+​		
+		SELECT id,name,age FROM user ORDER BY age;
+		SELECT id,name,age FROM user ORDER BY name;
+
+
+​		
+		SELECT id,name,age FROM user ORDER BY ${column};
+		SELECT id,name,age FROM user ORDER BY #{column}; //这样行不行？
+![lALPDgQ9rNjgFOLNA2XNBqQ_1700_869](lALPDgQ9rNjgFOLNA2XNBqQ_1700_869.png)
+
+# 第三天笔记
+
+课程主题
+	手写mybatis框架&源码阅读
+	
+课程目标
+	1.通过手写mybatis执行流程的框架，深入了解执行流程是如何执行的。
+	2.对于四大组件的理解，要应用到手写框架中（预留作业）
+	3.掌握源码阅读的技巧
+	
+课程内容
+	1.手写mybatis的执行流程
+		原有的执行流程，就是JDBC代码
+		
+		a)先定访问接口（CRUD操作）
+			SqlSession（实现类拥有Configuration对象）
+				<T> T selectOne(String statementId,Object param);
+				<T> List<T> selectList(String statementId,Object param);
+				
+				selectOne会执行JDBC代码
+					需要获取连接（通过Configuration对象获取Connection）
+					需要sql语句(通过statementId去Configuration对象中找MappedStatement，然后获取sql语句)
+					需要入参
+					需要有返回值，根据要求提供合适的返回值
+		b)使用工厂生产SqlSession，这个工厂就是SqlSessionFactory（Configuration）
+		c)使用构建者模式去创建SqlSessionFactory对象，这个类就是SqlSessionFactoryBuilder
+			要想创建SqlSessionFactory，需要先有Configuration对象
+			
+			所以说需要先进行解析流程
+	2.源码阅读
+		a）准备好翻译工具。
+		b）要确定源码阅读的主线，比如整体解析主线（SqlNode解析主线、SqlSource解析主线）
+		c）找源码阅读入口。
+			啥时候调用框架，这个时候就是入口
+			
+		d）一定要参考别人的经验去阅读，不要埋头苦读
+			百度
+			詹哥出品
+			书籍
+		e）记阅读笔记（画流程图）
+
+
+​	![1584534909(1)](1584534909(1).jpg)
+
+
+
+![mybatis第三天图](mybatis第三天图.png)
+
+![1584534909(1)](G:\java\github\第一章 Mybatis从入门到精通\1584534909(1).jpg)
 
 # 1. Mybatis简介
 
